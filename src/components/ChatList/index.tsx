@@ -5,11 +5,13 @@ import * as S from './styles'
 
 const dataD = [
   {
+    id: '1',
     name: "한준호",
     title: 'ㅁㄴㅇ',
     read: false,
   },
   {
+    id: '2',
     name: "김재원",
     title: '123123ㅂㄴㅇㅈㅁㄷㅁㅇㄴㅇㅁㅈ',
     read: true,
