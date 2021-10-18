@@ -23,6 +23,7 @@ const ChatListContainer: FC<Props> = ({name, title, read, id}) => {
               <div style={{width: '40px', height: "40px", borderRadius: '50%', backgroundColor: "blue"}} />
               <S.ChatInfo read={read}>
                 <div>{name}</div>
+                {/* <div>{title}</div> */}
                 <div>{title}</div>
               </S.ChatInfo>
             </div>
