@@ -7,7 +7,7 @@ export const GlobalStyle = css`
         margin: 0;
         padding: 0;
         box-sizing: border-box;
-        background-color: #FAFAFA;
+        background-color: #ffffff;
         outline: none;
     }
     a{
