@@ -6,7 +6,7 @@ interface Props {
 }
 
 export const ContainerWrapper = styled.div`
-    min-width: 300px;
+    min-width: 250px;
     max-width: 370px;
     width: 100%;
     height: 45px;
@@ -32,9 +32,13 @@ export const ChatInfo = styled.div<Props>`
         color: ${(props) => props.read ? color.gray500 : color.gray300};
     }
     div:nth-child(2) {
+        width: 110px;
         font-size: 10.5px;
         font-family: 'CookieRunRegular';
         color: ${(props) => props.read ? color.gray500 : color.gray200};
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
     }
 `
 
