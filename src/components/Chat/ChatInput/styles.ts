@@ -8,6 +8,10 @@ export const ChatInputBox = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-evenly;
+    position: absolute;
+    top: 100%;
+    transform: translateY(-100%);
+    max-width: 500px;
 `
 
 export const InputBox = styled.div`
@@ -18,7 +22,7 @@ export const InputBox = styled.div`
     background-color: white;
     border-radius: 10px;
     svg{
-        padding: 0 9px;
+        margin: 0 9px;
         width: 30px;
         height: 25px;
         cursor: pointer;
