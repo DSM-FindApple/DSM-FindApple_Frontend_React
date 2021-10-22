@@ -5,7 +5,7 @@ export const Wrapper = styled.div`
   max-width: 500px;
   min-width: 320px;
   width: 100%;
-  height: 90px;
+  height: 80px;
   position: absolute;
   top: 0;
   left: 50%;
@@ -14,14 +14,13 @@ export const Wrapper = styled.div`
 `
 
 export const InputBox = styled.div`
+  margin-top: 14px;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
 `
 
 export const Input = styled.input`
-  min-width: 250px;
-  max-width: 300px;
   width: calc(100% - 50px);
   outline: none;
   border: none;
@@ -30,6 +29,7 @@ export const Input = styled.input`
   height: 38px;
   box-sizing: border-box;
   padding: 10px;
+  margin-left: 11px;
   font-size: 14px;
   font-family: 'CookieRunRegular';
 `
@@ -37,6 +37,7 @@ export const Input = styled.input`
 export const Button = styled.div`
   width: 40px;
   height: 40px;
+  margin: 11px;
   background-color: #6CABDD;
   border: none;
   border-radius: 10px;
@@ -54,7 +55,7 @@ export const Button = styled.div`
 
 export const TagBox = styled.div`
   width: 100%;
-  height: 45px;
+  height: 40px;
   display: flex;
   overflow: auto;
   align-items: center;  
