@@ -4,6 +4,7 @@ import { color } from "../../../styles/Color";
 export const ChatTitleBox = styled.div`
     box-sizing: border-box;
     width: 100%;
+    max-width: 500px;
     background-color: ${color.yellow500};
     height: 45px;
     padding: 0 15px;
