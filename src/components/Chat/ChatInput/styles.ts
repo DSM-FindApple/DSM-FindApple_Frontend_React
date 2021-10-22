@@ -8,10 +8,6 @@ export const ChatInputBox = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    position: absolute;
-    top: 100%;
-    transform: translateY(-100%);
-    max-width: 500px;
 `
 
 export const InputBox = styled.div`
