@@ -25,7 +25,7 @@ export const Input = styled.input`
   outline: none;
   border: none;
   border-radius: 10px;
-  box-shadow: 0px 3px 5px #000;
+  box-shadow: 0px 2px 7px #000;
   height: 38px;
   box-sizing: border-box;
   padding: 10px;
@@ -41,7 +41,7 @@ export const Button = styled.div`
   background-color: #6CABDD;
   border: none;
   border-radius: 10px;
-  box-shadow: 0px 3px 5px #000;
+  box-shadow: 0px 2px 7px #000;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -76,7 +76,7 @@ export const Tag = styled.span`
   padding: 5px 11px;
   background-color: ${color.gray100};
   border-radius: 15px;
-  box-shadow: 0px 3px 5px #000;
+  box-shadow: 0px 2px 7px #000;
   margin: 0 5.5px;
   cursor: pointer;
   font-family: 'CookieRunRegular';
