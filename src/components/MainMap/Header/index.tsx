@@ -19,12 +19,6 @@ const Header = () => {
           <S.Tag>의류</S.Tag>
           <S.Tag>전자기기</S.Tag>
           <S.Tag>기타</S.Tag>
-          <S.Tag>의류</S.Tag>
-          <S.Tag>전자기기</S.Tag>
-          <S.Tag>기타</S.Tag>
-          <S.Tag>의류</S.Tag>
-          <S.Tag>전자기기</S.Tag>
-          <S.Tag>기타</S.Tag>
         </S.TagBox>
 
       </S.Wrapper>
