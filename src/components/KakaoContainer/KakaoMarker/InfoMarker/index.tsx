@@ -5,13 +5,14 @@ import { GrClose } from 'react-icons/gr'
 
 interface Props {
   onClosrOverView: () => void,
+  type: string,
 }
 
 
-const InfoMarker: FC<Props> = ({onClosrOverView}) => {
+const InfoMarker: FC<Props> = ({onClosrOverView, type}) => {
   return (
     <>
-      <S.InfoMarkerWrapper>
+      <S.InfoMarkerWrapper type={type}>
           <S.InfoHeader>
             <S.InfoTitle>홈팟 잃어버리신분?</S.InfoTitle>
             <GrClose width='25px' onClick={onClosrOverView}/>  
