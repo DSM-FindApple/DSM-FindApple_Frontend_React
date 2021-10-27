@@ -1,8 +1,12 @@
 import styled from '@emotion/styled';
-import {SpeechBubble} from '../../../../assets';
+import {YellowSpeechBubble,BlueSpeechBubble} from '../../../../assets';
 
-export const InfoMarkerWrapper = styled.div`
-    background-image: url(${SpeechBubble});
+interface Props {
+    type: string
+}
+
+export const InfoMarkerWrapper = styled.div<Props>`
+    background-image: url(${(props) => props.type === 'lost' ? YellowSpeechBubble : BlueSpeechBubble});
     background-size: 250px 250px;
     box-sizing: border-box;
     width: 250px;
