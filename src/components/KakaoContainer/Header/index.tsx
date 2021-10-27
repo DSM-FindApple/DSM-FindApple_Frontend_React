@@ -1,4 +1,3 @@
-import React from 'react';
 import * as S from './styles'
 import { BiSearch } from 'react-icons/bi'
 import { category } from '../../../libs/data/Category';
@@ -18,7 +17,7 @@ const Header = () => {
           {
             category.map((i,index) => {
               return (
-                <S.Tag>
+                <S.Tag key={`${i.name}-${index}`}>
                   <img src={i.img} alt={i.name} />
                   <span>{i.name}</span>
                 </S.Tag>
