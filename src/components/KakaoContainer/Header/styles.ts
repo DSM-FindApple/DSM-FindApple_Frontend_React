@@ -85,8 +85,11 @@ export const Tag = styled.span`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  :nth-child(1) {
+  :first-of-type {
     margin-left: 11px;
+  }
+  :nth-last-of-type(1){
+    margin-right: 11px;
   }
   span {
     margin-left: 4px;
