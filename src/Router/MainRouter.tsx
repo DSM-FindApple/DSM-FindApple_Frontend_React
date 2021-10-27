@@ -3,7 +3,8 @@ import { Route, Switch, useLocation } from 'react-router-dom';
 import { 
   Chat,
   ChatList,
-  MainMap,
+  LostMap,
+  FindMap,
  } from '../components';
 
 const MainRouter = () => {
@@ -12,7 +13,8 @@ const MainRouter = () => {
   return (
     <>
         <Switch>
-          <Route path='/' component={MainMap} exact/>
+          <Route path='/lost' component={LostMap} exact/>
+          <Route path='/find' component={FindMap} exact/>
           <Route path='/chatlist' component={ChatList} exact/>
           <Route path='/chat/:chatId' component={Chat} exact />
         </Switch>
