@@ -1,6 +1,7 @@
 import React from 'react';
 import * as S from './styles'
 import { BiSearch } from 'react-icons/bi'
+import { category } from '../../../libs/data/Category';
 
 const Header = () => {
   return (
@@ -14,11 +15,16 @@ const Header = () => {
         </S.InputBox>
 
         <S.TagBox>
-          <S.Tag>이어폰</S.Tag>
-          <S.Tag>휴대폰</S.Tag>
-          <S.Tag>의류</S.Tag>
-          <S.Tag>전자기기</S.Tag>
-          <S.Tag>기타</S.Tag>
+          {
+            category.map((i,index) => {
+              return (
+                <S.Tag>
+                  <img src={i.img} alt={i.name} />
+                  <span>{i.name}</span>
+                </S.Tag>
+              )
+            })
+          }
         </S.TagBox>
 
       </S.Wrapper>
