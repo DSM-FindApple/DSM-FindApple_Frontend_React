@@ -5,7 +5,7 @@ export const Wrapper = styled.div`
   max-width: 500px;
   min-width: 320px;
   width: 100%;
-  height: 80px;
+  height: 70px;
   position: absolute;
   top: 0;
   left: 50%;
@@ -55,10 +55,10 @@ export const Button = styled.div`
 
 export const TagBox = styled.div`
   width: 100%;
-  height: 40px;
+  height: 50px;
   display: flex;
   overflow: auto;
-  align-items: center;  
+  align-items: center;
   -ms-overflow-style: none;
   scrollbar-width: none;
   :-webkit-scrollbar-thumb {
@@ -73,6 +73,8 @@ export const TagBox = styled.div`
 
 export const Tag = styled.span`
   white-space : nowrap;
+  box-sizing: border-box;
+  max-height: 31px;
   padding: 5px 11px;
   background-color: ${color.gray100};
   border-radius: 15px;
@@ -80,7 +82,13 @@ export const Tag = styled.span`
   margin: 0 5.5px;
   cursor: pointer;
   font-family: 'CookieRunRegular';
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   :nth-child(1) {
     margin-left: 11px;
+  }
+  span {
+    margin-left: 4px;
   }
 `
