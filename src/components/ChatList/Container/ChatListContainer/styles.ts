@@ -26,12 +26,12 @@ export const ChatInfo = styled.div<Props>`
     flex-direction: column;
     min-width: 200px;
     margin-left: 18px;
-    div:nth-child(1) {
+    div:nth-of-type(1) {
         font-size: 14.5px;
         font-family: 'CookieRunBold';
         color: ${(props) => props.read ? color.gray500 : color.gray300};
     }
-    div:nth-child(2) {
+    div:nth-of-type(2) {
         width: 110px;
         font-size: 10.5px;
         font-family: 'CookieRunRegular';
