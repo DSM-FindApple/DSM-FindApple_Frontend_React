@@ -10,9 +10,8 @@ interface Props {
 }
 
 const ChatListContainer: FC<Props> = ({name, title, read, id}) => {
-  const history = useHistory()
   const onChatLink = () => {
-    history.push(`/chat/${id}`)
+    (window as any).CHAT_DETAIL.startChatDetail()
   }
 
   return (
