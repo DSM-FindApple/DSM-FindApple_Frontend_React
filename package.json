@@ -62,5 +62,5 @@
   "devDependencies": {
     "@types/react-router": "^5.1.17"
   },
-  "homepage": "http://oajh04.github.io/find-apple",
+  "homepage": "http://oajh04.github.io/dsm-findapple-frontend-react"
 }
