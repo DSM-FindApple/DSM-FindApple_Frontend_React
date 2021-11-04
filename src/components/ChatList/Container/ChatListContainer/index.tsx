@@ -11,7 +11,7 @@ interface Props {
 
 const ChatListContainer: FC<Props> = ({name, title, read, id}) => {
   const onChatLink = () => {
-    (window as any).CHAT_DETAIL.startChatDetail()
+    (window as any).CHAT_DETAIL.startChatDetail(id)
   }
 
   return (
