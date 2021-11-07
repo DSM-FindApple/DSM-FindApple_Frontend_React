@@ -9,7 +9,7 @@ const ChatContent = () => {
   
   const Scroll = () => {
     if (scrollRef && scrollRef.current) {
-      scrollRef.current.scrollIntoView({ inline: 'nearest', block: 'end', behavior: 'smooth' });
+      scrollRef.current.scrollIntoView({ inline: 'nearest', block: 'end' });
     }
   }
   
@@ -39,7 +39,7 @@ const ChatContent = () => {
           <PartnerChat/>
           <PartnerChat/>
           <MyChat/>
-          <PartnerChat/>
+          <MyChat/>
           <div ref={scrollRef} style={{marginTop: '11px'}}/>
         </S.ContentWrapper>
     </>
