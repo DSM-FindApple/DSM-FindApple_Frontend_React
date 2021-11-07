@@ -1,9 +1,7 @@
-import React, { useState } from 'react';
 import ChatListContainer from './Container/ChatListContainer';
-import NonData from './Container/NonData';
 import * as S from './styles'
 
-const dataD = [
+const data = [
   {
     id: '1',
     name: "한준호",
@@ -19,7 +17,7 @@ const dataD = [
 ]
 
 const ChatList = () => {
-  const [ data, setData ] = useState(dataD);
+  // const [ data, setData ] = useState(dataD);
 
   return (
     <>

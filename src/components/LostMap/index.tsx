@@ -1,5 +1,3 @@
-import React from 'react';
-import { Map } from 'react-kakao-maps-sdk'
 import KakaoMarker from '../KakaoContainer/KakaoMarker';
 import KakaoMap from '../KakaoContainer/KakaoMap';
 import Header from '../KakaoContainer/Header';

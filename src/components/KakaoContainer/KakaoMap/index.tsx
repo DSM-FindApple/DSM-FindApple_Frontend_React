@@ -1,5 +1,4 @@
-import React, { Children, FC, ReactChild, ReactChildren, ReactNode } from 'react';
-import { useState } from 'react';
+import React, { FC, ReactNode } from 'react';
 import { Map } from 'react-kakao-maps-sdk'
 
 interface Props {
@@ -7,7 +6,6 @@ interface Props {
 }
 
 const KakaoMap: FC<Props> = ({children}) => {
-    const [ seleteMarker ,setSeleteMarker ] = useState<number>()
 
     return (
         <Map // 지도를 표시할 Container

@@ -1,5 +1,5 @@
 import React, { FC, useState } from 'react';
-import { CustomOverlayMap, MapMarker, useMap } from 'react-kakao-maps-sdk';
+import { CustomOverlayMap, MapMarker } from 'react-kakao-maps-sdk';
 import { YellowMarker, BlueMarker } from '../../../assets';
 import InfoMarker from './InfoMarker';
 
@@ -12,7 +12,6 @@ interface Props {
 }
 
   const KakaoMarker: FC<Props> = ({lat, lng, index, title, type}) => {
-    const map = useMap()
     const [ isShow, setIsShow ] = useState<boolean>(false)
     const [ sizeData, setSizeData ] = useState({width: 49, height: 54})
 
