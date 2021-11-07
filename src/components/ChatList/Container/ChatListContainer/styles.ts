@@ -24,7 +24,7 @@ export const ContainerWrapper = styled.div`
 export const ChatInfo = styled.div<Props>`
     display: flex;
     flex-direction: column;
-    min-width: 200px;
+    min-width: 180px;
     margin-left: 18px;
     div:nth-of-type(1) {
         font-size: 14.5px;
