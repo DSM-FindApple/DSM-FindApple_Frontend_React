@@ -1,5 +1,4 @@
 import styled from "@emotion/styled";
-import { color } from "../../../styles/Color";
 
 export const ContentWrapper = styled.div`
     width: 100%;
