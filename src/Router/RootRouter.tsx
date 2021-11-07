@@ -5,7 +5,7 @@ import MainRouter from './MainRouter';
 const RootRouter = () => {
   return (
     <>
-        <BrowserRouter basename={process.env.PUBLIC_URL}>
+        <BrowserRouter>
             <MainRouter />  
         </BrowserRouter>
     </>
