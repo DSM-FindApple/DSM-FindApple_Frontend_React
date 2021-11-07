@@ -51,6 +51,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/socket.io-client", "npm:3.0.0"],
             ["eslint-config-react-app", "virtual:bb40917601271efb76cfe44717bfe52d36082cb367ed07a71897871d1d0705c25960c09e7002b703fd7c4a2f89bf4b47788b6b4fbaeafde68d173e0ba8ee8648#npm:6.0.0"],
             ["gh-pages", "npm:3.2.3"],
+            ["query-string", "npm:7.0.1"],
             ["react", "npm:17.0.2"],
             ["react-app", "npm:1.1.2"],
             ["react-dom", "virtual:bb40917601271efb76cfe44717bfe52d36082cb367ed07a71897871d1d0705c25960c09e7002b703fd7c4a2f89bf4b47788b6b4fbaeafde68d173e0ba8ee8648#npm:17.0.2"],
@@ -10752,6 +10753,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
+      ["filter-obj", [
+        ["npm:1.1.0", {
+          "packageLocation": "./.yarn/cache/filter-obj-npm-1.1.0-84128fc26d-cf2104a7c4.zip/node_modules/filter-obj/",
+          "packageDependencies": [
+            ["filter-obj", "npm:1.1.0"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
       ["finalhandler", [
         ["npm:1.1.2", {
           "packageLocation": "./.yarn/cache/finalhandler-npm-1.1.2-55a75d6b53-617880460c.zip/node_modules/finalhandler/",
@@ -10847,6 +10857,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/socket.io-client", "npm:3.0.0"],
             ["eslint-config-react-app", "virtual:bb40917601271efb76cfe44717bfe52d36082cb367ed07a71897871d1d0705c25960c09e7002b703fd7c4a2f89bf4b47788b6b4fbaeafde68d173e0ba8ee8648#npm:6.0.0"],
             ["gh-pages", "npm:3.2.3"],
+            ["query-string", "npm:7.0.1"],
             ["react", "npm:17.0.2"],
             ["react-app", "npm:1.1.2"],
             ["react-dom", "virtual:bb40917601271efb76cfe44717bfe52d36082cb367ed07a71897871d1d0705c25960c09e7002b703fd7c4a2f89bf4b47788b6b4fbaeafde68d173e0ba8ee8648#npm:17.0.2"],
@@ -16851,6 +16862,17 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["strict-uri-encode", "npm:1.1.0"]
           ],
           "linkType": "HARD",
+        }],
+        ["npm:7.0.1", {
+          "packageLocation": "./.yarn/cache/query-string-npm-7.0.1-4631368591-2eb990c0ea.zip/node_modules/query-string/",
+          "packageDependencies": [
+            ["query-string", "npm:7.0.1"],
+            ["decode-uri-component", "npm:0.2.0"],
+            ["filter-obj", "npm:1.1.0"],
+            ["split-on-first", "npm:1.1.0"],
+            ["strict-uri-encode", "npm:2.0.0"]
+          ],
+          "linkType": "HARD",
         }]
       ]],
       ["querystring", [
@@ -18705,6 +18727,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
+      ["split-on-first", [
+        ["npm:1.1.0", {
+          "packageLocation": "./.yarn/cache/split-on-first-npm-1.1.0-e2f3ab5e4e-16ff85b54d.zip/node_modules/split-on-first/",
+          "packageDependencies": [
+            ["split-on-first", "npm:1.1.0"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
       ["split-string", [
         ["npm:3.1.0", {
           "packageLocation": "./.yarn/cache/split-string-npm-3.1.0-df5d83450e-ae5af5c91b.zip/node_modules/split-string/",
@@ -18840,6 +18871,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/strict-uri-encode-npm-1.1.0-a79c6f7f24-9466d371f7.zip/node_modules/strict-uri-encode/",
           "packageDependencies": [
             ["strict-uri-encode", "npm:1.1.0"]
+          ],
+          "linkType": "HARD",
+        }],
+        ["npm:2.0.0", {
+          "packageLocation": "./.yarn/cache/strict-uri-encode-npm-2.0.0-1ec3189376-eaac4cf978.zip/node_modules/strict-uri-encode/",
+          "packageDependencies": [
+            ["strict-uri-encode", "npm:2.0.0"]
           ],
           "linkType": "HARD",
         }]
