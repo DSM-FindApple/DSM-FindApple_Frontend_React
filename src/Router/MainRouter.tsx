@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Switch, useLocation } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import { 
   Chat,
   ChatList,
@@ -8,7 +8,6 @@ import {
  } from '../components';
 
 const MainRouter = () => {
-  const location = useLocation();
 
   return (
     <>
@@ -16,7 +15,7 @@ const MainRouter = () => {
           <Route path='/lost' component={LostMap} exact/>
           <Route path='/find' component={FindMap} exact/>
           <Route path='/chatlist' component={ChatList} exact/>
-          <Route path='/chat/:chatId' component={Chat} exact />
+          <Route path='/chat' component={Chat} exact />
         </Switch>
     </>
   );
