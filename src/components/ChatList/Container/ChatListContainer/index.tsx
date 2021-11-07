@@ -1,5 +1,4 @@
 import React, { FC } from 'react';
-import { useHistory } from 'react-router-dom';
 import * as S from './styles';
 
 interface Props {
@@ -11,7 +10,7 @@ interface Props {
 
 const ChatListContainer: FC<Props> = ({name, title, read, id}) => {
   const onChatLink = () => {
-    (window as any).ChatDetail.startChatDetail(id)
+    (window as any).ChatDetail.startChatDetail(id);
   }
 
   return (
