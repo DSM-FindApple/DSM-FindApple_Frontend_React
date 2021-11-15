@@ -25,11 +25,16 @@ const LocationList = () => {
                 <button onClick={onSearch}>검색</button>
                 {
                     data.map((i: any, index: any) => {
+                        let category= i.category_name.split(' > ')
                         return (
-                            <div key={i.id}>
-                                <div>{i.place_name}</div>
-                                <div>{i.address_name}</div>
-                            </div>
+                            <S.LocationBox key={i.id}>
+                                <S.PlaceName>
+                                    {i.place_name}
+                                    <span>{category[category.length-1]}</span>
+                                </S.PlaceName>
+                                <S.Address>{i.address_name}</S.Address>
+                                <S.PhoneNumber>{i.phone}</S.PhoneNumber>
+                            </S.LocationBox>
                         )
                     })
                 }
