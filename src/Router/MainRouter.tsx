@@ -5,6 +5,7 @@ import {
   ChatList,
   LostMap,
   FindMap,
+  LocationList,
  } from '../components';
 
 const MainRouter = () => {
@@ -16,6 +17,7 @@ const MainRouter = () => {
           <Route path='/find' component={FindMap} exact/>
           <Route path='/chatlist' component={ChatList} exact/>
           <Route path='/chat' component={Chat} exact />
+          <Route path='/location' component={LocationList} exact />
         </Switch>
     </>
   );
