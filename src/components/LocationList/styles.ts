@@ -12,15 +12,40 @@ export const LocationListWrapper = styled.div`
     align-items: center;
 `
 
+
+export const SearchBox = styled.form`
+    width: calc(100% - 20px);
+    margin: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid ${color.gray200};
+    border-radius: 5px;
+    svg{
+        width: 30px;
+        height: 30px;
+    }
+`
+
+export const SearchInput = styled.input`
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    border: none;
+    outline: none;
+    font-size: 14px;
+`
+
+
 export const LocationBox = styled.div`
     width: 100%;
-    border-top: 1px solid black;
+    border-bottom: 1px solid ${color.gray100};
     display: flex;
     flex-direction: column;
-    padding: 10px;
+    padding: 10px 0;
     cursor: pointer;
-    :nth-last-of-type(1){
-        border-bottom: 1px solid black;    
+    :nth-of-type(1){
+        border-top: 1px solid ${color.gray200};    
     }
 `
 
@@ -33,6 +58,7 @@ export const PlaceName = styled.div`
         color: ${color.gray400};
     }
 `
+
 
 export const Address = styled.div`
     font-size: 12px;
