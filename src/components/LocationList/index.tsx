@@ -1,16 +1,21 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import LocationApi from '../../libs/api/Location/LocationApi';
 import * as S from './styles'
+import { IoIosArrowBack } from 'react-icons/io';
+import { AiOutlineSearch } from 'react-icons/ai'
 
 const LocationList = () => {
     const [ keyword, setKeyword ] = useState('');
     const [ data, setData ] = useState([]);
+    const [loading, setLoading] = useState<boolean>(false);
+    const [page, setPage] = useState<number>(1);
 
-    const onSearch = () => {
+    const onSearch = (e: any) => {
+        e.preventDefault()
         console.log(keyword)
         LocationApi.getLocationList(keyword, 2)
         .then((res) => {
-            console.log(res.data.documents)
+            console.log(res.data)
             setData(res.data.documents)
         })
         .catch((err) => {
@@ -21,8 +26,11 @@ const LocationList = () => {
     return (
         <>
             <S.LocationListWrapper>
-                <input onChange={(e) => setKeyword(e.target.value)}/>
-                <button onClick={onSearch}>검색</button>
+                <S.SearchBox onSubmit={onSearch}>
+                    <IoIosArrowBack />
+                    <S.SearchInput onChange={(e) => setKeyword(e.target.value)}/>
+                    <AiOutlineSearch/>
+                </S.SearchBox>
                 {
                     data.map((i: any, index: any) => {
                         let category= i.category_name.split(' > ')
