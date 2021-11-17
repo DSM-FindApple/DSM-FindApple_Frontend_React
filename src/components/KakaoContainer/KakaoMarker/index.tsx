@@ -27,34 +27,34 @@ interface Props {
 
     return (
       <>
-      <MapMarker
-        image={{
-          src: `${type === 'lost' ? YellowMarker : BlueMarker}`,
-          size: {
-            width: sizeData.width,
-            height: sizeData.height,
-          },
-          
-        }}
+        <MapMarker
+          image={{
+            src: `${type === 'lost' ? YellowMarker : BlueMarker}`,
+            size: {
+              width: sizeData.width,
+              height: sizeData.height,
+            },
+            
+          }}
 
-        position={{
-          lat: lat,
-          lng: lng,
-        }}
-        onClick={onOpenOverView}
-      />
-      {
-        isShow &&
-        <CustomOverlayMap
           position={{
             lat: lat,
             lng: lng,
           }}
-          yAnchor={1}
-        >
-          <InfoMarker onClosrOverView={() => onClosrOverView()} type={type}/>
-        </CustomOverlayMap>
-      }
+          onClick={onOpenOverView}
+        />
+        {
+          isShow &&
+          <CustomOverlayMap
+            position={{
+              lat: lat,
+              lng: lng,
+            }}
+            yAnchor={1}
+          >
+            <InfoMarker onClosrOverView={() => onClosrOverView()} type={type}/>
+          </CustomOverlayMap>
+        }
       </>
     )
   }
