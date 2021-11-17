@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled'
+import { color } from '../../../../styles/Color';
 
 const PartnerChat = () => {
   return (
@@ -19,8 +20,8 @@ const PartnerChat = () => {
 export default PartnerChat;
 
 export const PartnerChatWrapper = styled.div`
-  clear:both;
-  float:left;
+  clear: both;
+  float: left;
   display: flex;
   margin-top: 10px;
   margin-left: 10px;
@@ -37,7 +38,8 @@ export const PartnerChatBox = styled.div`
 `
 
 export const PartnerChatDate = styled.div`
-  font-size: 11px;
+  font-size: 10px;
+  color: ${color.gray300};
   font-family: 'CookieRunRegular';
   margin-left: 5px;
 `
