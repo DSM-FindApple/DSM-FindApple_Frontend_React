@@ -20,11 +20,13 @@ const LocationList = () => {
     return (
         <>
             <S.LocationListWrapper>
-                <S.SearchBox onSubmit={onSearch}>
-                    <IoIosArrowBack />
-                    <S.SearchInput onChange={(e) => setKeyword(e.target.value)}/>
-                    <AiOutlineSearch/>
-                </S.SearchBox>
+                <S.Box>
+                    <S.SearchBox onSubmit={onSearch}>
+                        <IoIosArrowBack />
+                        <S.SearchInput onChange={(e) => setKeyword(e.target.value)}/>
+                        <AiOutlineSearch/>
+                    </S.SearchBox>
+                </S.Box>
                 {
                     prop &&
                     <Location keyword={prop}/>
