@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled'
+import { color } from '../../../../styles/Color';
 
 const MyChat = () => {
   return (
@@ -39,7 +40,8 @@ export const MyChatBox = styled.div`
 `
 
 export const MyChatDate = styled.div`
-  font-size: 11px;
+  font-size: 10px;
+  color: ${color.gray300};
   font-family: 'CookieRunRegular';
-  margin-left: 5px;
+  margin-right: 5px;
 `
