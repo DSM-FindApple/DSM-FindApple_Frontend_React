@@ -1,6 +1,7 @@
 import React from 'react';
 import * as S from './styled'
-import { BsArrowLeft,BsThreeDotsVertical } from 'react-icons/bs'
+import { BsArrowLeft } from 'react-icons/bs'
+import { AiFillSchedule } from 'react-icons/ai'
 import { useHistory } from 'react-router';
 
 const ChatTitle = () => {
@@ -15,7 +16,10 @@ const ChatTitle = () => {
         <S.ChatTitleBox>
             <BsArrowLeft onClick={onBack}/>
             <S.ChatPartner>한준호</S.ChatPartner>
-            <BsThreeDotsVertical />
+            <S.Appointment>
+              <AiFillSchedule />
+              <span>약속잡기</span>
+            </S.Appointment>
         </S.ChatTitleBox>
     </>
   );
