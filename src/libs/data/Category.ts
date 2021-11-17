@@ -3,34 +3,42 @@ import { Accessory, Car, Cellphone, Clothes, Earphone, Electronic, Purse } from 
 export const category = [
     {
         "name": '이어폰',
-        "img" : Earphone
+        "img" : Earphone,
+        "id": 'EAR_PHONE' 
     },
     {
         "name": '휴대폰',
-        "img" : Cellphone
+        "img" : Cellphone,
+        "id": "CELL_PHONE"
     },
     {
         "name": '전자기기',
-        "img" : Electronic
+        "img" : Electronic,
+        "id": "MACHINE",
     },
     {
         "name": '의류',
-        "img" : Clothes
+        "img" : Clothes,
+        "id": "CLOTHES"
     },
     {
         "name": '악세사리',
-        "img" : Accessory
+        "img" : Accessory,
+        "id": "ACC"
     },
     {
         "name": '지갑',
-        "img" : Purse
+        "img" : Purse,
+        "id": "WALLET"
     },
     {
         "name": '자동차',
-        "img" : Car
+        "img" : Car,
+        "id": "CAR"
     },
     {
         "name": '기타',
-        "img" : Earphone
+        "img" : Earphone,
+        "id": ""
     },
 ]
