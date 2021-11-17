@@ -21,3 +21,13 @@ export const ChatPartner = styled.div`
     font-size: 18px;
     font-family: 'CookieRunBold';
 `
+
+export const Appointment = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    span{
+        font-size: 10px;
+        font-family: 'CookieRunRegular';
+    }
+`
