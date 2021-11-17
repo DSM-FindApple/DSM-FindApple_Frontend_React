@@ -4,12 +4,22 @@ import { color } from "../../styles/Color";
 export const LocationListWrapper = styled.div`
     max-width: 500px;
     width: 100%;
-    height: 100vh;
+    height: 100%;
     margin: 0 auto;
     background-color: white;
     display: flex;
     flex-direction: column;
     align-items: center;
+    font-family: 'CookieRunRegular';
+`
+
+export const Box = styled.div`
+    width: 100%;
+    height: 100%;
+    position: sticky;
+    top: 0;
+    left: 0;
+    background-color: white;
 `
 
 
@@ -28,6 +38,7 @@ export const SearchBox = styled.form`
 `
 
 export const SearchInput = styled.input`
+    font-family: 'CookieRunRegular';
     width: 100%;
     box-sizing: border-box;
     padding: 10px;
@@ -52,6 +63,7 @@ export const LocationBox = styled.div`
 export const PlaceName = styled.div`
     font-size: 15px;
     margin: 2px 10px;
+    font-family: 'CookieRunBold';
     span{
         margin-left: 5px;
         font-size: 12px;
@@ -63,11 +75,13 @@ export const PlaceName = styled.div`
 export const Address = styled.div`
     font-size: 12px;
     margin: 2px 10px;
+    font-family: 'CookieRunRegular';
     color: ${color.gray400};
 `
 
 export const PhoneNumber = styled.div`
     font-size: 12px;
+    font-family: 'CookieRunRegular';
     margin: 2px 10px;
     color: blue;
 `
