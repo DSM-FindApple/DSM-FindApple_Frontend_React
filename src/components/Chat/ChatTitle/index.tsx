@@ -6,13 +6,13 @@ import { useHistory } from 'react-router';
 
 const ChatTitle = () => {
   const history = useHistory()
-  
+
   const onSelectDate = () => {
-    (window as any).ChatDetail.startSelectDate()
+    (window as any).ChatDetail.startSelectDate();
   }
 
   const onBack = () => {
-    history.push('/chatlist')
+    (window as any).ChatDetail.exitChatDetail();
   }
 
   return (
