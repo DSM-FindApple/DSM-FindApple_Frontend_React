@@ -6,11 +6,11 @@ import { AiOutlineSearch } from 'react-icons/ai'
 import { useInfiniteScroll } from '../../libs/hooks/useInfiniteScroll';
 import Location from './Location';
 
-const LocationList = () => {
+const LocationList = ({location}: any) => {
     const [ keyword, setKeyword ] = useState('');
-    const [prop, setProp] = useState('');
-    // const [data, loading, last] = useInfiniteScroll((page)=>LocationApi.getLocationList(keyword, page));
+    const [ prop, setProp ] = useState('');
     
+    console.log(location)
 
     const onSearch = (e: any) => {
         e.preventDefault()
