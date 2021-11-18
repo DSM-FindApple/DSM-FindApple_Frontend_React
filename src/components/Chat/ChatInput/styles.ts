@@ -39,6 +39,12 @@ export const InputBox = styled.div`
     align-items: center;
     background-color: white;
     border-radius: 10px;
+    svg{
+        margin: 0 9px;
+        width: 30px;
+        height: 25px;
+        cursor: pointer;
+    }
 `
 
 export const FileLabel = styled.label`
