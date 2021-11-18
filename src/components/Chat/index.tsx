@@ -11,7 +11,9 @@ const Chat: FC<RouteComponentProps> = ({location}: any) => {
   const history = useHistory()
 
   useEffect(() => {
-
+    window.addEventListener('LocationChoice', async (e) => {
+      history.push('/location')
+    })
   },[])
 
   const LocationChoice = (date: string, id: string) => {
