@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import LocationApi from '../../../libs/api/Location/LocationApi';
 import { useInfiniteScroll } from '../../../libs/hooks/useInfiniteScroll';
 import * as S from '../styles'
 
 const Location = ({keyword}: any) => {
+    
     const [data, loading, last] = useInfiniteScroll((page)=>LocationApi.getLocationList(keyword, page), keyword)
 
     return (
@@ -24,7 +25,7 @@ const Location = ({keyword}: any) => {
                 })
             }
             {
-                loading && <div>loading</div>
+                loading && <S.Loading/>
             }
         </>
     );
