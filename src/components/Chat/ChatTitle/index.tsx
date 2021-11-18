@@ -5,10 +5,14 @@ import { AiFillSchedule } from 'react-icons/ai'
 import { useHistory } from 'react-router';
 
 const ChatTitle = () => {
-  const history = useHistory();
+  const history = useHistory()
+  
+  const onSelectDate = () => {
+    (window as any).ChatDetail.startSelectDate()
+  }
 
   const onBack = () => {
-    history.goBack()
+    history.push('/chatlist')
   }
 
   return (
@@ -16,7 +20,7 @@ const ChatTitle = () => {
         <S.ChatTitleBox>
             <BsArrowLeft onClick={onBack}/>
             <S.ChatPartner>한준호</S.ChatPartner>
-            <S.Appointment>
+            <S.Appointment onClick={onSelectDate}>
               <AiFillSchedule />
               <span>약속잡기</span>
             </S.Appointment>
