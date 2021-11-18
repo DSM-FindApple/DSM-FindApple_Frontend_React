@@ -6,9 +6,7 @@ interface Props {
 }
 
 export const ContainerWrapper = styled.div`
-    min-width: 250px;
-    max-width: 370px;
-    width: 100%;
+    width: calc(100% - 20px);
     height: 45px;
     display: flex;
     align-items: center;
