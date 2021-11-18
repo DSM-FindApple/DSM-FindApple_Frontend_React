@@ -1,3 +1,4 @@
+import { keyframes } from "@emotion/react";
 import styled from "@emotion/styled";
 import { color } from "../../styles/Color";
 
@@ -84,4 +85,19 @@ export const PhoneNumber = styled.div`
     font-family: 'CookieRunRegular';
     margin: 2px 10px;
     color: blue;
+`
+
+const spin = keyframes`
+    from { transform: rotate(0deg); }
+    to { transform: rotate(359deg); }
+`
+
+export const Loading = styled.div`
+    margin: 5% auto;
+    height: 42px;
+    width: 42px;
+    border-radius: 50%;
+    border: 5px solid #fff;
+    border-top: 5px solid #000;
+    animation: ${spin} 0.7s infinite linear;
 `
