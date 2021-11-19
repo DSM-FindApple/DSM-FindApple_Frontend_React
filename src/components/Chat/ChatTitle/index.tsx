@@ -8,8 +8,8 @@ const ChatTitle = () => {
   const history = useHistory()
 
   const onSelectDate = () => {
-    (window as any).ChatDetail.startSelectDate();
     history.push('/location');
+    (window as any).ChatDetail.startSelectDate();
   }
 
   const onBack = () => {
