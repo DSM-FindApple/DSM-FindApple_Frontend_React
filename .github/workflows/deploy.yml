@@ -27,6 +27,8 @@ jobs:
 
       - name: Build
         run: npm run build
+        env: 
+          CI: false
 
       - name: Transfer to S3 for serving static
         uses: jakejarvis/s3-sync-action@master
