@@ -19,6 +19,7 @@ function App() {
   const LocationChoice = () => {
     history.push('/location')
   }
+  
 
   return (
     <>
