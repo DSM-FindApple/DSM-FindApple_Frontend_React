@@ -5,7 +5,6 @@ import ChatTitle from './ChatTitle';
 import * as S from './styles'
 import queryString from "query-string";
 import { RouteComponentProps, useHistory } from 'react-router';
-import styled from '@emotion/styled';
 
 const Chat: FC<RouteComponentProps> = ({location}: any) => {
   const history = useHistory()
@@ -14,13 +13,13 @@ const Chat: FC<RouteComponentProps> = ({location}: any) => {
     window.addEventListener('LocationChoice', async (e) => {
       history.push('/location')
     })
+    window.addEventListener('android', async (e) => {
+      history.push('/location')
+    })    
   },[])
 
-  const LocationChoice = (date: string, id: string) => {
-    history.push({
-      pathname: "/location",
-      state: {date: date, id: id}
-    });
+  const LocationChoice = () => {
+    history.push('/location')
   }
   
   const query = queryString.parse(location.search);
