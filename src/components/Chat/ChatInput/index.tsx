@@ -8,17 +8,12 @@ const ChatInput = () => {
   const [fileURL, setFileURL] = useState<any>(null)
   const [isShow, setIsShow ] = useState<boolean>(false)
 
-  const onAddImage = (e: any) => {
-    const img = e.target.files[0];
-    const formData = new FormData();
-    setFileURL(URL.createObjectURL(img))
-    formData.append('file', img);
-    setIsShow(true)
-  }
-
   const onCloseImage = () => {
     setIsShow(false)
-    setFileURL(null)
+  }
+
+  const onGetImage = () => {
+    (window as any).ChatDetail.startGetImage();
   }
 
 
@@ -33,15 +28,7 @@ const ChatInput = () => {
       }
       <S.ChatInputBox>
         <S.InputBox>
-          <S.FileLabel htmlFor="input-file">
-            <BsImage />
-          </S.FileLabel>
-          <S.FileInput type='file' id="input-file"
-              accept='image/jpg,impge/png,image/jpeg,image/gif' 
-              name='profile_img' 
-              onChange={onAddImage}>
-          </S.FileInput>
-          
+          <BsImage onClick={onGetImage}/>
           <S.ChatInput />
         </S.InputBox>
         <S.SendChatButton>
