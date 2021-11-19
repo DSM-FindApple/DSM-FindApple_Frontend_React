@@ -63,8 +63,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["react-router", "virtual:bb40917601271efb76cfe44717bfe52d36082cb367ed07a71897871d1d0705c25960c09e7002b703fd7c4a2f89bf4b47788b6b4fbaeafde68d173e0ba8ee8648#npm:5.2.1"],
             ["react-router-dom", "virtual:bb40917601271efb76cfe44717bfe52d36082cb367ed07a71897871d1d0705c25960c09e7002b703fd7c4a2f89bf4b47788b6b4fbaeafde68d173e0ba8ee8648#npm:5.3.0"],
             ["react-scripts", "virtual:bb40917601271efb76cfe44717bfe52d36082cb367ed07a71897871d1d0705c25960c09e7002b703fd7c4a2f89bf4b47788b6b4fbaeafde68d173e0ba8ee8648#npm:4.0.3"],
-            ["redux", "npm:4.1.1"],
-            ["redux-actions", "npm:2.6.5"],
+            ["recoil", "virtual:bb40917601271efb76cfe44717bfe52d36082cb367ed07a71897871d1d0705c25960c09e7002b703fd7c4a2f89bf4b47788b6b4fbaeafde68d173e0ba8ee8648#npm:0.5.2"],
             ["socket.io-client", "npm:2.0.2"],
             ["typescript", "patch:typescript@npm%3A4.4.4#~builtin<compat/typescript>::version=4.4.4&hash=32657b"],
             ["web-vitals", "npm:1.1.2"]
@@ -10891,8 +10890,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["react-router", "virtual:bb40917601271efb76cfe44717bfe52d36082cb367ed07a71897871d1d0705c25960c09e7002b703fd7c4a2f89bf4b47788b6b4fbaeafde68d173e0ba8ee8648#npm:5.2.1"],
             ["react-router-dom", "virtual:bb40917601271efb76cfe44717bfe52d36082cb367ed07a71897871d1d0705c25960c09e7002b703fd7c4a2f89bf4b47788b6b4fbaeafde68d173e0ba8ee8648#npm:5.3.0"],
             ["react-scripts", "virtual:bb40917601271efb76cfe44717bfe52d36082cb367ed07a71897871d1d0705c25960c09e7002b703fd7c4a2f89bf4b47788b6b4fbaeafde68d173e0ba8ee8648#npm:4.0.3"],
-            ["redux", "npm:4.1.1"],
-            ["redux-actions", "npm:2.6.5"],
+            ["recoil", "virtual:bb40917601271efb76cfe44717bfe52d36082cb367ed07a71897871d1d0705c25960c09e7002b703fd7c4a2f89bf4b47788b6b4fbaeafde68d173e0ba8ee8648#npm:0.5.2"],
             ["socket.io-client", "npm:2.0.2"],
             ["typescript", "patch:typescript@npm%3A4.4.4#~builtin<compat/typescript>::version=4.4.4&hash=32657b"],
             ["web-vitals", "npm:1.1.2"]
@@ -11438,6 +11436,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["gzip-size", "npm:5.1.1"],
             ["duplexer", "npm:0.1.2"],
             ["pify", "npm:4.0.1"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["hamt_plus", [
+        ["npm:1.0.2", {
+          "packageLocation": "./.yarn/cache/hamt_plus-npm-1.0.2-67a52ee1df-af26ea32db.zip/node_modules/hamt_plus/",
+          "packageDependencies": [
+            ["hamt_plus", "npm:1.0.2"]
           ],
           "linkType": "HARD",
         }]
@@ -12171,16 +12178,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["get-intrinsic", "npm:1.1.1"],
             ["has", "npm:1.0.3"],
             ["side-channel", "npm:1.0.4"]
-          ],
-          "linkType": "HARD",
-        }]
-      ]],
-      ["invariant", [
-        ["npm:2.2.4", {
-          "packageLocation": "./.yarn/cache/invariant-npm-2.2.4-717fbdb119-cc3182d793.zip/node_modules/invariant/",
-          "packageDependencies": [
-            ["invariant", "npm:2.2.4"],
-            ["loose-envify", "npm:1.4.0"]
           ],
           "linkType": "HARD",
         }]
@@ -13633,15 +13630,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["jsx-ast-utils", "npm:3.2.1"],
             ["array-includes", "npm:3.1.4"],
             ["object.assign", "npm:4.1.2"]
-          ],
-          "linkType": "HARD",
-        }]
-      ]],
-      ["just-curry-it", [
-        ["npm:3.2.1", {
-          "packageLocation": "./.yarn/cache/just-curry-it-npm-3.2.1-472c935340-21b7bd6aac.zip/node_modules/just-curry-it/",
-          "packageDependencies": [
-            ["just-curry-it", "npm:3.2.1"]
           ],
           "linkType": "HARD",
         }]
@@ -17438,6 +17426,33 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
+      ["recoil", [
+        ["npm:0.5.2", {
+          "packageLocation": "./.yarn/cache/recoil-npm-0.5.2-d5de0b4507-1daf09f969.zip/node_modules/recoil/",
+          "packageDependencies": [
+            ["recoil", "npm:0.5.2"]
+          ],
+          "linkType": "SOFT",
+        }],
+        ["virtual:bb40917601271efb76cfe44717bfe52d36082cb367ed07a71897871d1d0705c25960c09e7002b703fd7c4a2f89bf4b47788b6b4fbaeafde68d173e0ba8ee8648#npm:0.5.2", {
+          "packageLocation": "./.yarn/__virtual__/recoil-virtual-9cf9127b2f/0/cache/recoil-npm-0.5.2-d5de0b4507-1daf09f969.zip/node_modules/recoil/",
+          "packageDependencies": [
+            ["recoil", "virtual:bb40917601271efb76cfe44717bfe52d36082cb367ed07a71897871d1d0705c25960c09e7002b703fd7c4a2f89bf4b47788b6b4fbaeafde68d173e0ba8ee8648#npm:0.5.2"],
+            ["@types/react", "npm:17.0.29"],
+            ["hamt_plus", "npm:1.0.2"],
+            ["react", "npm:17.0.2"],
+            ["react-dom", "virtual:bb40917601271efb76cfe44717bfe52d36082cb367ed07a71897871d1d0705c25960c09e7002b703fd7c4a2f89bf4b47788b6b4fbaeafde68d173e0ba8ee8648#npm:17.0.2"],
+            ["react-native", null]
+          ],
+          "packagePeers": [
+            "@types/react",
+            "react-dom",
+            "react-native",
+            "react"
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
       ["recursive-readdir", [
         ["npm:2.2.2", {
           "packageLocation": "./.yarn/cache/recursive-readdir-npm-2.2.2-7e64fe65fc-a6b22994d7.zip/node_modules/recursive-readdir/",
@@ -17459,35 +17474,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
-      ["reduce-reducers", [
-        ["npm:0.4.3", {
-          "packageLocation": "./.yarn/cache/reduce-reducers-npm-0.4.3-f8fda892fc-6e33cafc4e.zip/node_modules/reduce-reducers/",
-          "packageDependencies": [
-            ["reduce-reducers", "npm:0.4.3"]
-          ],
-          "linkType": "HARD",
-        }]
-      ]],
       ["redux", [
         ["npm:4.1.1", {
           "packageLocation": "./.yarn/cache/redux-npm-4.1.1-b6f44c6668-99519438a5.zip/node_modules/redux/",
           "packageDependencies": [
             ["redux", "npm:4.1.1"],
             ["@babel/runtime", "npm:7.15.4"]
-          ],
-          "linkType": "HARD",
-        }]
-      ]],
-      ["redux-actions", [
-        ["npm:2.6.5", {
-          "packageLocation": "./.yarn/cache/redux-actions-npm-2.6.5-afed173c83-677a727d0b.zip/node_modules/redux-actions/",
-          "packageDependencies": [
-            ["redux-actions", "npm:2.6.5"],
-            ["invariant", "npm:2.2.4"],
-            ["just-curry-it", "npm:3.2.1"],
-            ["loose-envify", "npm:1.4.0"],
-            ["reduce-reducers", "npm:0.4.3"],
-            ["to-camel-case", "npm:1.0.0"]
           ],
           "linkType": "HARD",
         }]
@@ -19542,30 +19534,11 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
-      ["to-camel-case", [
-        ["npm:1.0.0", {
-          "packageLocation": "./.yarn/cache/to-camel-case-npm-1.0.0-2e7e71c9af-2f74cfcffa.zip/node_modules/to-camel-case/",
-          "packageDependencies": [
-            ["to-camel-case", "npm:1.0.0"],
-            ["to-space-case", "npm:1.0.0"]
-          ],
-          "linkType": "HARD",
-        }]
-      ]],
       ["to-fast-properties", [
         ["npm:2.0.0", {
           "packageLocation": "./.yarn/cache/to-fast-properties-npm-2.0.0-0dc60cc481-be2de62fe5.zip/node_modules/to-fast-properties/",
           "packageDependencies": [
             ["to-fast-properties", "npm:2.0.0"]
-          ],
-          "linkType": "HARD",
-        }]
-      ]],
-      ["to-no-case", [
-        ["npm:1.0.2", {
-          "packageLocation": "./.yarn/cache/to-no-case-npm-1.0.2-2d005c2291-1d85326eeb.zip/node_modules/to-no-case/",
-          "packageDependencies": [
-            ["to-no-case", "npm:1.0.2"]
           ],
           "linkType": "HARD",
         }]
@@ -19608,16 +19581,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [
             ["to-regex-range", "npm:5.0.1"],
             ["is-number", "npm:7.0.0"]
-          ],
-          "linkType": "HARD",
-        }]
-      ]],
-      ["to-space-case", [
-        ["npm:1.0.0", {
-          "packageLocation": "./.yarn/cache/to-space-case-npm-1.0.0-6bc33e5f5c-157cebe3e9.zip/node_modules/to-space-case/",
-          "packageDependencies": [
-            ["to-space-case", "npm:1.0.0"],
-            ["to-no-case", "npm:1.0.2"]
           ],
           "linkType": "HARD",
         }]
