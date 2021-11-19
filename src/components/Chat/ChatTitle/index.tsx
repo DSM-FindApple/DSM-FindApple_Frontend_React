@@ -9,6 +9,7 @@ const ChatTitle = () => {
 
   const onSelectDate = () => {
     (window as any).ChatDetail.startSelectDate();
+    history.push('/location');
   }
 
   const onBack = () => {
