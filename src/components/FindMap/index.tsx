@@ -3,6 +3,8 @@ import KakaoMarker from '../KakaoContainer/KakaoMarker';
 import KakaoMap from '../KakaoContainer/KakaoMap';
 import Header from '../KakaoContainer/Header';
 import * as S from './styles'
+import { useRecoilValue, useSetRecoilState } from 'recoil';
+import { fildArticelState, fildArticleSeletor } from '../../Recoil/fildArticleState/fildArticleState';
 
 const markerdata = [
   {
@@ -33,11 +35,17 @@ const markerdata = [
 ];
 
 const FindMap = () => {
+  const setFindLatLng = useSetRecoilState(fildArticelState)
+  const fildArticleData = useRecoilValue(fildArticleSeletor)
+
+  console.log(fildArticleData)
+
+
   return (
     <>
       <S.Wrapper >
         <Header/>
-        <KakaoMap>
+        <KakaoMap setLatLng={setFindLatLng}>
           {
                 markerdata.map((data, index) => (
                     <>
