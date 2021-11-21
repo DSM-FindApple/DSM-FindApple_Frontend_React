@@ -18,7 +18,7 @@ const ChatContent: FC<Props> = ({data}) => {
   
   useEffect(() => {
     Scroll()
-  }, [])
+  }, [data])
 
   useEffect(() => {
     let vh = window.innerHeight * 0.01;
