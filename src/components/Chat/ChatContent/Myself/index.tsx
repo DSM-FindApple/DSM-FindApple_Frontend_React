@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { FC } from 'react';
 import styled from '@emotion/styled'
 import { color } from '../../../../styles/Color';
 
-const MyChat = () => {
+interface Props {
+  message: string
+}
+
+const MyChat: FC<Props> = ({message}) => {
   return (
     <>
         <MyChatWrapper>
@@ -10,7 +14,7 @@ const MyChat = () => {
             오후 8시 30분
           </MyChatDate>
           <MyChatBox>
-            안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+            {message}
           </MyChatBox>
         </MyChatWrapper>
     </>

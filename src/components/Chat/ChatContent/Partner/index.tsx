@@ -1,13 +1,17 @@
-import React from 'react';
+import React, { FC } from 'react';
 import styled from '@emotion/styled'
 import { color } from '../../../../styles/Color';
 
-const PartnerChat = () => {
+interface Props {
+  message: string,
+}
+
+const PartnerChat: FC<Props> = ({message}) => {
   return (
     <>
         <PartnerChatWrapper>
           <PartnerChatBox>
-            안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요
+            {message}
           </PartnerChatBox>
           <PartnerChatDate>
             오후 8시 30분
