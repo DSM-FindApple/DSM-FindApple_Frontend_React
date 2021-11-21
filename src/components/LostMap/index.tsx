@@ -2,6 +2,8 @@ import KakaoMarker from '../KakaoContainer/KakaoMarker';
 import KakaoMap from '../KakaoContainer/KakaoMap';
 import Header from '../KakaoContainer/Header';
 import * as S from './styles'
+import { fildArticelState } from '../../Recoil/fildArticleState/fildArticleState';
+import { useRecoilState } from 'recoil';
 
 const markerdata = [
   {
@@ -32,11 +34,13 @@ const markerdata = [
 ];
 
 const LostMap = () => {
+  const [ fildAritcleData, setFindArticleData ] = useRecoilState(fildArticelState)
+
   return (
     <>
       <S.Wrapper >
         <Header/>
-        <KakaoMap>
+        <KakaoMap setLatLng={setFindArticleData}>
           {
                 markerdata.map((data, index) => (
                     <>
