@@ -23,7 +23,7 @@ export const ImgBox = styled.div`
     }
 `
 
-export const ChatInputBox = styled.div`
+export const ChatInputBox = styled.form`
     height: 60px;
     width: 100%;
     background-color: ${color.yellow500};
