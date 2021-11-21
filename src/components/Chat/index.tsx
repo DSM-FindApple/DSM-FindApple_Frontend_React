@@ -11,16 +11,16 @@ import { useSocket } from '../../libs/hooks/useSocket';
 const Chat: FC<RouteComponentProps> = ({location}: any) => {
   const query = queryString.parse(location.search);
   const [messages, setMessages] = useState<any[]>([]);
-  const {socket} = useSocket()
-  const roomid = '0fecda03-3de7-4c63-89c2-743355b6f9a7'
+  const {socket} = useSocket();
+  const roomid = '0fecda03-3de7-4c63-89c2-743355b6f9a7';
+  let chatlist:any[]=[];
 
   useEffect(() => {
-    console.log(messages)
     socket.current.on("message", (message: any) => {
-      setMessages([...messages, message])
-      console.log(message)
+      chatlist=[...chatlist, message]
+      setMessages(chatlist)
     });
-  },[messages]);
+  },[]);
 
   const onDisConnect = () => {
     socket.current.emit("disconnect")
