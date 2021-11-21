@@ -1,28 +1,25 @@
 import React, { FC, ReactNode, useState } from 'react';
 import { Map } from 'react-kakao-maps-sdk'
 
-interface Props {
-  children: ReactNode;
+interface ILatLng {
+  startLatitude: number,
+  endLatitude: number,
+  startLongitude: number,
+  endLongitude: number,
 }
 
-const KakaoMap: FC<Props> = ({children}) => {
-  const [ mapData, setMapData] = useState<any>([])
+interface Props {
+  children: ReactNode;
+  setLatLng: (e: ILatLng) => void
+}
+
+const KakaoMap: FC<Props> = ({children, setLatLng}) => {
   const onCenter = (level: number, center: any, nePath: any, swPath: any ) => {
-    setMapData({
-        ...mapData, 
-        center: {
-            lat: center.Ma, 
-            lng: center.La
-        }, 
-        level: level,
-        swLatLng: {
-            lat: swPath.Ma,
-            lng: swPath.La,
-          },
-        neLatLng: {
-            lat: nePath.Ma,
-            lng: nePath.La,
-        },
+    setLatLng({
+      startLatitude: swPath.Ma,
+      endLatitude: nePath.Ma,
+      startLongitude: swPath.La,
+      endLongitude: nePath.La,
     })
 }
 
