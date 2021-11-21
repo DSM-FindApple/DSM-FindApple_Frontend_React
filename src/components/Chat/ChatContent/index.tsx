@@ -1,10 +1,13 @@
-import React, { useEffect, useRef } from 'react';
+import React, { FC, useEffect, useRef } from 'react';
 import MyChat from './Myself';
 import PartnerChat from './Partner';
 import * as S from './styles'
 
-const ChatContent = () => {
+interface Props {
+  data: any[]
+}
 
+const ChatContent: FC<Props> = ({data}) => {
   const scrollRef = useRef() as React.MutableRefObject<HTMLInputElement>;;
   
   const Scroll = () => {
@@ -30,16 +33,19 @@ const ChatContent = () => {
   return (
     <>
         <S.ContentWrapper>
-          <PartnerChat/>
-          <PartnerChat/>
-          <MyChat/>
-          <PartnerChat/>
-          <PartnerChat/>
-          <MyChat/>
-          <PartnerChat/>
-          <PartnerChat/>
-          <MyChat/>
-          <MyChat/>
+          {
+            data.map((i: any, index) => {
+              return (
+                <div key={`${i.messageId}-${index}`}>
+                  {
+                    i.username ==='김재원' ?
+                    <PartnerChat message={i.message}/>
+                    : <MyChat message={i.message}/>
+                  }
+                </div>
+              )
+            })
+          }
           <div ref={scrollRef} style={{marginTop: '11px'}}/>
         </S.ContentWrapper>
     </>
