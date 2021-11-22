@@ -4,6 +4,7 @@ import Header from '../KakaoContainer/Header';
 import * as S from './styles'
 import { fildArticelState } from '../../Recoil/fildArticleState/fildArticleState';
 import { useRecoilState } from 'recoil';
+import { useEffect } from 'react';
 
 const markerdata = [
   {
@@ -35,6 +36,11 @@ const markerdata = [
 
 const LostMap = () => {
   const [ fildAritcleData, setFindArticleData ] = useRecoilState(fildArticelState)
+
+  useEffect(() => {
+    (window as any).backKeyPressed = new Event('backKey');
+    (window as any).addEventListener('backKey',() => {history.push('/location')} )
+  },[])
 
   return (
     <>
