@@ -30,13 +30,14 @@ export const ChatInfo = styled.div<Props>`
         color: ${(props) => props.read ? color.gray500 : color.gray300};
     }
     div:nth-of-type(2) {
-        width: 110px;
+        display:block;
+        width: 150px;
         font-size: 10.5px;
         font-family: 'CookieRunRegular';
         color: ${(props) => props.read ? color.gray500 : color.gray200};
+        white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
-        white-space: nowrap;
     }
 `
 
