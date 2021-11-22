@@ -1,6 +1,5 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import test from '../../libs/api/test';
 import ChatListContainer from './Container/ChatListContainer';
 import * as S from './styles'
 import io from 'socket.io-client';
