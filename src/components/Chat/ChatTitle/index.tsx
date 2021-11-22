@@ -3,8 +3,11 @@ import * as S from './styled'
 import { BsArrowLeft } from 'react-icons/bs'
 import { AiFillSchedule } from 'react-icons/ai'
 import { useHistory } from 'react-router';
+import { useRecoilValue } from 'recoil';
+import { chatState } from '../../../Recoil/chat/chatState';
 
 const ChatTitle = () => {
+  const chatUserState = useRecoilValue(chatState);
   const history = useHistory()
 
   const onSelectDate = () => {
@@ -20,7 +23,7 @@ const ChatTitle = () => {
     <>
         <S.ChatTitleBox>
             <BsArrowLeft onClick={onBack}/>
-            <S.ChatPartner>한준호</S.ChatPartner>
+            <S.ChatPartner>{chatUserState.title}</S.ChatPartner>
             <S.Appointment onClick={onSelectDate}>
               <AiFillSchedule />
               <span>약속잡기</span>
