@@ -1,29 +1,31 @@
+import axios from 'axios';
+import { useEffect, useState } from 'react';
+import test from '../../libs/api/test';
 import ChatListContainer from './Container/ChatListContainer';
 import * as S from './styles'
+import io from 'socket.io-client';
+import chatApi from '../../libs/api/chat/chatApi';
 
-const data = [
-  {
-    id: '1',
-    name: "한준호",
-    title: 'ㅁㄴㅇ',
-    read: false,
-  },
-  {
-    id: '2',
-    name: "김재원",
-    title: '123123ㅂㄴㅇㅈㅁㄷㅁㅇㄴㅇㅁㅈ',
-    read: true,
-  },
-]
 
 const ChatList = () => {
-  // const [ data, setData ] = useState(dataD);
+  const [ data, setData ] = useState([]);
+  useEffect(() => {
+    chatApi.getChatList()
+    .then((res) => {
+      setData(res.data)
+      console.log(res.data)
+    })
+    .catch((err) => {
+      console.log(err)
+    })
+  },[])
 
   return (
     <>
         <S.Wrapper>
             {
-              data.map((i, index) => {
+              data !== [] &&
+              data.map((i: any, index) => {
                 return (
                   <ChatListContainer {...i} key={index}/>
                 )
