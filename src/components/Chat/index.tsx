@@ -12,6 +12,7 @@ import { chatMessageState } from '../../Recoil/chat/chatState';
 
 const Chat: FC<RouteComponentProps> = ({location}: any) => {
   const query = queryString.parse(location.search);
+  const history = useHistory()
   const [messages, setMessages] = useState<any[]>([]);
   const [chatMessage, setChatMessage ] = useRecoilState(chatMessageState)
   const {socket} = useSocket();
@@ -48,6 +49,12 @@ const Chat: FC<RouteComponentProps> = ({location}: any) => {
   const onDisConnect = () => {
     socket.current.emit("disconnect")
   }
+
+  useEffect(() => {
+    (window as any).backKeyPressed = new Event('backKey');
+    (window as any).addEventListener('backKey',() => {history.push('/location')} )
+  },[])
+
 
   return (
     <>
