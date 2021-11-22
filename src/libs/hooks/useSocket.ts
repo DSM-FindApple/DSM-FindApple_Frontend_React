@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import socketIO from 'socket.io-client';
 
-const ENDPOINT= `http://3.35.174.250:8080?token=${localStorage.getItem('access-token')}`
+const ENDPOINT= `http://3.35.131.241:8080?token=${localStorage.getItem('access-token')}`
 
 export const useSocket = () => {
   const socket = useRef<any>();
