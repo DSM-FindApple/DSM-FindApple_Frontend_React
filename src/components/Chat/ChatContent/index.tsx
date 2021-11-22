@@ -1,4 +1,6 @@
 import React, { FC, useEffect, useRef } from 'react';
+import { useRecoilValue } from 'recoil';
+import { chatState } from '../../../Recoil/chat/chatState';
 import MyChat from './Myself';
 import PartnerChat from './Partner';
 import * as S from './styles'
@@ -8,7 +10,8 @@ interface Props {
 }
 
 const ChatContent: FC<Props> = ({data}) => {
-  const scrollRef = useRef() as React.MutableRefObject<HTMLInputElement>;;
+  const scrollRef = useRef() as React.MutableRefObject<HTMLInputElement>;
+  const chatInfo = useRecoilValue(chatState)
   
   const Scroll = () => {
     if (scrollRef && scrollRef.current) {
@@ -38,7 +41,7 @@ const ChatContent: FC<Props> = ({data}) => {
               return (
                 <div key={`${i.messageId}-${index}`}>
                   {
-                    i.username ==='김재원' ?
+                    i.username === chatInfo.title?
                     <PartnerChat message={i.message}/>
                     : <MyChat message={i.message}/>
                   }
