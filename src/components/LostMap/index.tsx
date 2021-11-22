@@ -5,6 +5,7 @@ import * as S from './styles'
 import { fildArticelState } from '../../Recoil/fildArticleState/fildArticleState';
 import { useRecoilState } from 'recoil';
 import { useEffect } from 'react';
+import { useHistory } from 'react-router';
 
 const markerdata = [
   {
@@ -36,7 +37,8 @@ const markerdata = [
 
 const LostMap = () => {
   const [ fildAritcleData, setFindArticleData ] = useRecoilState(fildArticelState)
-
+  
+  const history = useHistory()
   useEffect(() => {
     (window as any).backKeyPressed = new Event('backKey');
     (window as any).addEventListener('backKey',() => {history.push('/location')} )
