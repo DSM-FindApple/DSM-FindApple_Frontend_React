@@ -36,6 +36,7 @@ export const PartnerChatBox = styled.div`
   padding: 7px 12px;
   border-radius: 10px;
   font-size: 15px;
+  word-break: break-all;
   box-sizing: border-box;
   font-family: 'CookieRunRegular';
   background-color: #E3E6EA;
