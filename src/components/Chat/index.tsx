@@ -5,7 +5,6 @@ import ChatTitle from './ChatTitle';
 import * as S from './styles'
 import queryString from "query-string";
 import { RouteComponentProps, useHistory } from 'react-router';
-import io from 'socket.io-client';
 import { useSocket } from '../../libs/hooks/useSocket';
 import { useRecoilState } from 'recoil';
 import { chatMessageState } from '../../Recoil/chat/chatState';
@@ -16,17 +15,13 @@ const Chat: FC<RouteComponentProps> = ({location}: any) => {
   const [messages, setMessages] = useState<any[]>([]);
   const [chatMessage, setChatMessage ] = useRecoilState(chatMessageState)
   const {socket} = useSocket();
-  const roomid = '0fecda03-3de7-4c63-89c2-743355b6f9a7';
   let chatlist:any[]=chatMessage;
-
-  console.log(socket)
-
+  
   useEffect(()=> {
-    socket.current.emit("connect", ()=> {
-      console.log('asd')
-      socket.current.emit('joinRoom', query.id)
-    })
-  })
+    socket.current.on("connect", ()=> {
+      socket.current.emit("joinRoom", query.id)
+    });
+  },[])
 
   useEffect(() => {
     socket.current.on("message", (message: any) => {
@@ -44,25 +39,19 @@ const Chat: FC<RouteComponentProps> = ({location}: any) => {
       setChatMessage([...chatlist])
     });
 
+    socket.current.on("info", (message: any) => {
+      console.log(message)
+    });
+    
   },[]);
-
-  const onDisConnect = () => {
-    socket.current.emit("disconnect")
-  }
-
-  useEffect(() => {
-    (window as any).backKeyPressed = new Event('backKey');
-    (window as any).addEventListener('backKey',() => {history.push('/location')} )
-  },[])
-
-
+  
   return (
     <>
-    <S.ChatWrapper>
-      <ChatTitle />
-      <ChatContent data={chatMessage}/>
-      <ChatInput chatId={roomid}/>
-    </S.ChatWrapper>
+      <S.ChatWrapper>
+        <ChatTitle />
+        <ChatContent data={chatMessage}/>
+        <ChatInput chatId={query.id} socket={socket}/>
+      </S.ChatWrapper>
     </>
   );
 }
