@@ -17,6 +17,7 @@ const ChatContent: FC<Props> = ({data}) => {
   const chatUserState = useRecoilValue(chatState)
   const [messages, setMessages] = useRecoilState(chatMessageState);
   const [pageNum, setPageNum] = useState<number>(0)
+  const [oldPageNum, setOldPageNum] = useState<number>(0)
   
   const Scroll = () => {
     if (scrollRef && scrollRef.current) {
@@ -24,6 +25,7 @@ const ChatContent: FC<Props> = ({data}) => {
     }
   }
   useEffect(() => {
+    oldPageNum+1 === pageNum &&
     Scroll()
   }, [data])
 
@@ -38,11 +40,12 @@ const ChatContent: FC<Props> = ({data}) => {
   },[])
 
   const onHistoryMessage = () => {
+    chatUserState.chatId &&
     chatApi.getChatHistoryMessgage(chatUserState.chatId, pageNum)
     .then((res)=>{
-      console.log(res.data)
       setMessages([...res.data, ...messages])
       setPageNum(pageNum+1)
+      setOldPageNum(pageNum)
     })
     .catch((err)=>{
       console.log(err)
@@ -51,7 +54,7 @@ const ChatContent: FC<Props> = ({data}) => {
 
   useEffect(() => {
     onHistoryMessage()
-  },[chatUserState])
+  },[chatUserState.chatId])
 
   const onAddMessage = ()=> {
     onHistoryMessage()
@@ -63,14 +66,14 @@ const ChatContent: FC<Props> = ({data}) => {
           <S.AddMessage onClick={onAddMessage}>더보기</S.AddMessage>
           {
             data.map((i: any, index: number) => {
-              let time = i.sendTime.split(':')[0]+ '시 '+i.sendTime.split(':')[1] + '분'
+              let time = parseInt(i.sendTime.split(':')[0])+9 + '시 '+i.sendTime.split(':')[1] + '분'
               return (
                 <>
                   {
                     i.messageType === "MESSAGE" &&
                     <div key={`${i.messageId}-${index}`}>
                       {
-                        i.userName === chatUserState.title?
+                        i.kakaoId === chatUserState.targetId ?
                         <PartnerChat message={i.message} sendTime={time}/>
                         : <MyChat message={i.message} sendTime={time}/>
                       }
@@ -78,8 +81,8 @@ const ChatContent: FC<Props> = ({data}) => {
                   }
                   {
                     i.messageType === "PROMISE" &&
-                    <div key={i.discript}>
-                      <Promise title={i.targetUserName}/>
+                    <div key={i.promiseId}>
+                      <Promise sendUserId={i.kakaoId}/>
                     </div>
                   }
                 </>
