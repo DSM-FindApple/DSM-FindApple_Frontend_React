@@ -4,9 +4,10 @@ import { color } from '../../../../styles/Color';
 
 interface Props {
   message: string,
+  sendTime: string
 }
 
-const PartnerChat: FC<Props> = ({message}) => {
+const PartnerChat: FC<Props> = ({message, sendTime}) => {
   return (
     <>
         <PartnerChatWrapper>
@@ -14,7 +15,7 @@ const PartnerChat: FC<Props> = ({message}) => {
             {message}
           </PartnerChatBox>
           <PartnerChatDate>
-            오후 8시 30분
+            {sendTime}
           </PartnerChatDate>
         </PartnerChatWrapper>
     </>
@@ -29,12 +30,14 @@ export const PartnerChatWrapper = styled.div`
   display: flex;
   margin-top: 10px;
   margin-left: 10px;
+  align-items: flex-end;
 `
 
 export const PartnerChatBox = styled.div`
   max-width: 170px;
   padding: 7px 12px;
   border-radius: 10px;
+  min-height: 34px;
   font-size: 15px;
   word-break: break-all;
   box-sizing: border-box;

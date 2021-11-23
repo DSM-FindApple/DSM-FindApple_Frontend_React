@@ -3,15 +3,17 @@ import styled from '@emotion/styled'
 import { color } from '../../../../styles/Color';
 
 interface Props {
-  message: string
+  message: string,
+  sendTime: string
 }
 
-const MyChat: FC<Props> = ({message}) => {
+const MyChat: FC<Props> = ({message,sendTime}) => {
+  
   return (
     <>
         <MyChatWrapper>
           <MyChatDate>
-            오후 8시 30분
+            {sendTime}
           </MyChatDate>
           <MyChatBox>
             {message}
@@ -30,11 +32,12 @@ export const MyChatWrapper = styled.div`
   margin: auto 0 0 auto;
   margin-top: 10px;
   margin-right: 10px;
-
+  align-items: flex-end;
 `
 
 export const MyChatBox = styled.div`
   max-width: 170px;
+  min-height: 34px;
   padding: 7px 12px;
   border-radius: 10px;
   font-size: 15px;
@@ -42,6 +45,7 @@ export const MyChatBox = styled.div`
   box-sizing: border-box;
   font-family: 'CookieRunRegular';
   background-color: #FFF4CC;
+  position: relative;
 `
 
 export const MyChatDate = styled.div`
