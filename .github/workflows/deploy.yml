@@ -28,6 +28,10 @@ jobs:
       - name: Build
         run: npm run build
         env: 
+          REACT_APP_KAKAO_JAVASCRIPT_KEY: ${{ secrets.REACT_APP_KAKAO_JAVASCRIPT_KEY}}
+          REACT_APP_KAKAO_RESTAPI_KEY: ${{ secrets.REACT_APP_KAKAO_RESTAPI_KEY }}
+          REACT_APP_SOCKET_URL: ${{ secrets.REACT_APP_SOCKET_URL }}
+          REACT_APP_BASE_URL: ${{ secrets.REACT_APP_BASE_URL }}
           CI: false
 
       - name: Transfer to S3 for serving static
