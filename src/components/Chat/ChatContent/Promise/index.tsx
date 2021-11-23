@@ -5,10 +5,10 @@ import { chatState } from '../../../../Recoil/chat/chatState';
 import { useSocket } from '../../../../libs/hooks/useSocket';
 
 interface Props {
-    title: string
+    sendUserId: string
 }
 
-const Promise:FC<Props> = ({title}) => {
+const Promise:FC<Props> = ({sendUserId}) => {
     const chatUserState = useRecoilValue(chatState);
     const {socket} = useSocket();
 
@@ -20,9 +20,11 @@ const Promise:FC<Props> = ({title}) => {
     }
     
     return (
+
+        
         <>
-            <S.PromiseWrapper isMy={title === '재원' ? "right" : "left"}>
-                <S.PromiseBox isMy={title === '재원' ? "#FFF4CC" : "#E3E6EA"}>
+            <S.PromiseWrapper isMy={sendUserId !== chatUserState.targetId ? "right" : "left"}>
+                <S.PromiseBox isMy={sendUserId !== chatUserState.targetId ? "#FFF4CC" : "#E3E6EA"}>
                     <div>약속</div>
                     <div>장소</div>
                     <div>날짜</div>
