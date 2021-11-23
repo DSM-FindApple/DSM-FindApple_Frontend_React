@@ -10,9 +10,10 @@ interface Props {
   targetProfileUrl: string
   title: string
   topMessage: string
+  targetId: string
 }
 
-const ChatListContainer: FC<Props> = ({chatId, isBan, targetProfileUrl, title, topMessage}) => {
+const ChatListContainer: FC<Props> = ({chatId, isBan, targetProfileUrl, title, topMessage, targetId}) => {
   const setChatUserState = useSetRecoilState(chatState)
   const history = useHistory()
 
@@ -22,7 +23,8 @@ const ChatListContainer: FC<Props> = ({chatId, isBan, targetProfileUrl, title, t
       isBan: isBan,
       targetProfileUrl: targetProfileUrl,
       title: title,
-      topMessage: topMessage
+      topMessage: topMessage,
+      targetId: targetId
     })
     history.push(`/chat?id=${chatId}`);
     // (window as any).ChatDetail.startChatDetail(chatId);
