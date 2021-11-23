@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import * as S from './styles'
 import { BsImage } from 'react-icons/bs'
 import { AiOutlineSend } from 'react-icons/ai'
@@ -6,14 +6,16 @@ import { GrClose } from 'react-icons/gr'
 import { useSocket } from '../../../libs/hooks/useSocket';
 import { useRecoilValue } from 'recoil';
 import { chatState } from '../../../Recoil/chat/chatState';
+import chatApi from '../../../libs/api/chat/chatApi';
 
 interface Props {
   chatId: string;
+  socket: any
 }
 
-const ChatInput:FC<Props> = ({chatId}) => {
+const ChatInput:FC<Props> = ({chatId, socket}) => {
   const chatUserState = useRecoilValue(chatState);
-  const { socket } = useSocket();
+  
   const [ message, setMessage ] = useState<string>('');
   const [ fileURL, setFileURL ] = useState<any>(null)
   const [ isShow, setIsShow ] = useState<boolean>(false)
@@ -22,21 +24,30 @@ const ChatInput:FC<Props> = ({chatId}) => {
     setIsShow(false)
   }
 
+  // useEffect(() => {
+  //   chatApi.getChatHistoryMessgage(chatId, 1)
+  //   .then((res)=>{
+  //     console.log(res)
+  //   })
+  //   .catch((err) => {
+  //     console.log(err)
+  //   })
+  // },[])
+
   const onGetImage = () => {
     (window as any).ChatDetail.startGetImage();
   }
 
-  const sendMessage = (e: any) => {
+  const onSendMessage = (e: any) => {
     e.preventDefault()
-    if(message===''){
-      alert('채팅을 입력해주세요')
-    } else {
-      socket.current.emit('sendMessage', {
-        chatId: chatUserState.chatId,
+    if(message !== ''){
+      socket.current.emit("sendMessage",JSON.stringify({
+        chatId: chatId,
         message: message
-      }, {
-
-      })
+      }))
+      setMessage("")
+    } else {
+      alert('빈칸을 다 채워주세요')
     }
   }
 
@@ -50,7 +61,7 @@ const ChatInput:FC<Props> = ({chatId}) => {
           <img src={fileURL} />
         </S.ImgBox>
       }
-      <S.ChatInputBox onSubmit={sendMessage}>
+      <S.ChatInputBox onSubmit={onSendMessage}>
         <S.InputBox>
           <BsImage onClick={onGetImage}/>
           <S.ChatInput onChange={(e: any) => setMessage(e.target.value)} value={message}/>
