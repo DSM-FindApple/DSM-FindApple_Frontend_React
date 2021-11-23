@@ -11,3 +11,10 @@ export const ContentWrapper = styled.div`
     flex-direction: column;
     
 `
+
+export const AddMessage = styled.div`
+    margin: 0 auto;
+    margin-top: 3px;
+    font-size: 11px;
+    font-family: "CookieRunRegular";
+`
