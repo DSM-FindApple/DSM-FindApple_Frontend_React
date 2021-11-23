@@ -1,8 +1,10 @@
-import React, { FC, useEffect, useRef } from 'react';
-import { useRecoilValue } from 'recoil';
-import { chatState } from '../../../Recoil/chat/chatState';
+import React, { FC, useEffect, useRef, useState } from 'react';
+import { useRecoilState, useRecoilValue } from 'recoil';
+import chatApi from '../../../libs/api/chat/chatApi';
+import { chatMessageState, chatState } from '../../../Recoil/chat/chatState';
 import MyChat from './Myself';
 import PartnerChat from './Partner';
+import Promise from './Promise';
 import * as S from './styles'
 
 interface Props {
@@ -10,15 +12,17 @@ interface Props {
 }
 
 const ChatContent: FC<Props> = ({data}) => {
+  
   const scrollRef = useRef() as React.MutableRefObject<HTMLInputElement>;
-  const chatInfo = useRecoilValue(chatState)
+  const chatUserState = useRecoilValue(chatState)
+  const [messages, setMessages] = useRecoilState(chatMessageState);
+  const [pageNum, setPageNum] = useState<number>(0)
   
   const Scroll = () => {
     if (scrollRef && scrollRef.current) {
       scrollRef.current.scrollIntoView({ inline: 'nearest', block: 'end' });
     }
   }
-  
   useEffect(() => {
     Scroll()
   }, [data])
@@ -32,20 +36,54 @@ const ChatContent: FC<Props> = ({data}) => {
       document.documentElement.style.setProperty("--vh", `${vh}px`);
     });
   },[])
+
+  const onHistoryMessage = () => {
+    chatApi.getChatHistoryMessgage(chatUserState.chatId, pageNum)
+    .then((res)=>{
+      console.log(res.data)
+      setMessages([...res.data, ...messages])
+      setPageNum(pageNum+1)
+    })
+    .catch((err)=>{
+      console.log(err)
+    })
+  }
+
+  useEffect(() => {
+    onHistoryMessage()
+  },[chatUserState])
+
+  const onAddMessage = ()=> {
+    onHistoryMessage()
+  }
   
   return (
     <>
         <S.ContentWrapper>
+          <S.AddMessage onClick={onAddMessage}>더보기</S.AddMessage>
           {
-            data.map((i: any, index) => {
+            data.map((i: any, index: number) => {
+              let time = i.sendTime.split(':')[0]+ '시 '+i.sendTime.split(':')[1] + '분'
               return (
-                <div key={`${i.messageId}-${index}`}>
+                <>
                   {
-                    i.username === chatInfo.title?
-                    <PartnerChat message={i.message}/>
-                    : <MyChat message={i.message}/>
+                    i.messageType === "MESSAGE" &&
+                    <div key={`${i.messageId}-${index}`}>
+                      {
+                        i.userName === chatUserState.title?
+                        <PartnerChat message={i.message} sendTime={time}/>
+                        : <MyChat message={i.message} sendTime={time}/>
+                      }
+                    </div>
                   }
-                </div>
+                  {
+                    i.messageType === "PROMISE" &&
+                    <div key={i.discript}>
+                      <Promise title={i.targetUserName}/>
+                    </div>
+                  }
+                </>
+                
               )
             })
           }
