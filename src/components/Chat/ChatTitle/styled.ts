@@ -18,8 +18,13 @@ export const ChatTitleBox = styled.div`
 `
 
 export const ChatPartner = styled.div`
+    display: flex;
     font-size: 18px;
     font-family: 'CookieRunBold';
+    svg{
+        margin-left: 4px;
+        width: 15px;
+    }
 `
 
 export const Appointment = styled.div`
@@ -29,5 +34,25 @@ export const Appointment = styled.div`
     span{
         font-size: 10px;
         font-family: 'CookieRunRegular';
+    }
+`
+
+export const ChatSetting = styled.div`
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 10px;
+    z-index: 99;
+    div{
+        padding: 5px;
+        font-size: 13px;
+        font-family: "CookieRunBold";
     }
 `
