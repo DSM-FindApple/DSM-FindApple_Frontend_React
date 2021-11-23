@@ -57,5 +57,23 @@ export default {
                 isAccept: true
             }
         })
-    }
+    },
+    postChatBan(kakaoId: number){
+        return request({
+            url: `/chat/ban/${kakaoId}`,
+            method: 'post',
+            headers : {
+                Authorization: `${localStorage.getItem('access-token')}`
+            }
+        })
+    },
+    deleteChatBan(kakaoId: number){
+        return request({
+            url: `/chat/ban/${kakaoId}`,
+            method: 'delete',
+            headers : {
+                Authorization: `${localStorage.getItem('access-token')}`
+            }
+        })
+    },
 }
