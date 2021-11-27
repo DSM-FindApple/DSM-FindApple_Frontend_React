@@ -12,11 +12,11 @@ import { chatMessageState } from '../../Recoil/chat/chatState';
 const Chat: FC<RouteComponentProps> = ({location}: any) => {
   const query = queryString.parse(location.search);
   const history = useHistory()
-  const [messages, setMessages] = useState<any[]>([]);
   const [chatMessage, setChatMessage ] = useRecoilState(chatMessageState)
   const {socket} = useSocket();
-  let chatlist:any[]=chatMessage;
-  
+  // const [ chatlist, setChatlist ] = useState(chatMessage)
+  let chatlist: any[] = chatMessage;
+
   useEffect(()=> {
     socket.current.on("connect", ()=> {
       socket.current.emit("joinRoom", query.id)
@@ -25,6 +25,7 @@ const Chat: FC<RouteComponentProps> = ({location}: any) => {
 
   useEffect(() => {
     socket.current.on("message", (message: any) => {
+      console.log(message)
       chatlist=[...chatlist, message]
       setChatMessage([...chatlist])
     });
@@ -42,7 +43,6 @@ const Chat: FC<RouteComponentProps> = ({location}: any) => {
     socket.current.on("info", (message: any) => {
       console.log(message)
     });
-    
   },[]);
   
   return (
