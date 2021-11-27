@@ -15,7 +15,7 @@ const ChatContent: FC<Props> = ({data}) => {
   
   const scrollRef = useRef() as React.MutableRefObject<HTMLInputElement>;
   const chatUserState = useRecoilValue(chatState)
-  const [messages, setMessages] = useRecoilState(chatMessageState);
+  const [messages, setMessages] = useState<any[]>([]);
   const [pageNum, setPageNum] = useState<number>(0)
   const [oldPageNum, setOldPageNum] = useState<number>(0)
   
@@ -24,6 +24,7 @@ const ChatContent: FC<Props> = ({data}) => {
       scrollRef.current.scrollIntoView({ inline: 'nearest', block: 'end' });
     }
   }
+  
   useEffect(() => {
     oldPageNum+1 === pageNum &&
     Scroll()
@@ -64,6 +65,32 @@ const ChatContent: FC<Props> = ({data}) => {
     <>
         <S.ContentWrapper>
           <S.AddMessage onClick={onAddMessage}>더보기</S.AddMessage>
+          {
+            messages.map((i: any, index: number) => {
+              let time = parseInt(i.sendTime.split(':')[0])+9 + '시 '+i.sendTime.split(':')[1] + '분'
+              return (
+                <>
+                  {
+                    i.messageType === "MESSAGE" &&
+                    <div key={`${i.messageId}-${index}`}>
+                      {
+                        i.kakaoId === chatUserState.targetId ?
+                        <PartnerChat message={i.message} sendTime={time}/>
+                        : <MyChat message={i.message} sendTime={time}/>
+                      }
+                    </div>
+                  }
+                  {
+                    i.messageType === "PROMISE" &&
+                    <div key={i.promiseId}>
+                      <Promise sendUserId={i.kakaoId}/>
+                    </div>
+                  }
+                </>
+                
+              )
+            })
+          }
           {
             data.map((i: any, index: number) => {
               let time = parseInt(i.sendTime.split(':')[0])+9 + '시 '+i.sendTime.split(':')[1] + '분'
