@@ -4,8 +4,9 @@ import Header from '../KakaoContainer/Header';
 import * as S from './styles'
 import { fildArticelState } from '../../Recoil/fildArticleState/fildArticleState';
 import { useRecoilState } from 'recoil';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useHistory } from 'react-router';
+import mapApi from '../../libs/api/map/mapApi';
 
 const markerdata = [
   {
@@ -35,8 +36,22 @@ const markerdata = [
   },
 ];
 
+interface ILostData {
+  startLatitude: number,
+  endLatitude: number,
+  startLongitude: number,
+  endLongitude: number,
+}
+
 const LostMap = () => {
-  const [ fildAritcleData, setFindArticleData ] = useRecoilState(fildArticelState)
+  // const [ fildAritcleData, setFindArticleData ] = useRecoilState(fildArticelState)
+  const [ lostAritcleData, setLostArticleData ] = useState<any>({
+    startLatitude: 0,
+    endLatitude: 0,
+    startLongitude: 0,
+    endLongitude: 0,
+  });
+  const [ lostData, setLostData ] = useState<any>([markerdata]);
   
   const history = useHistory()
   useEffect(() => {
@@ -44,20 +59,30 @@ const LostMap = () => {
     (window as any).addEventListener('backKey',() => {history.push('/location')} )
   },[])
 
+  useEffect(() => {
+    const {startLatitude, endLatitude, startLongitude, endLongitude} = lostAritcleData
+      mapApi.getLost(startLatitude, endLatitude, startLongitude, endLongitude)
+      .then((res) => {
+          console.log(res)
+          setLostData(res.data)
+      })
+      .catch((err) => {
+          console.log(err)
+      })
+  },[ lostAritcleData ])
+
   return (
     <>
       <S.Wrapper >
         <Header/>
-        <KakaoMap setLatLng={setFindArticleData}>
+        <KakaoMap setLatLng={setLostArticleData}>
           {
-                markerdata.map((data, index) => (
+                lostData.map((data: any, index: number) => (
                     <>
                         <KakaoMarker
                             type="lost"
-                            lat={data.lat} 
-                            lng={data.lng} 
+                            {...data}
                             index={index}
-                            title={data.title}
                             key={`EventMarkerContainer-${data.lat}-${data.lng}`}
                         />
                     </>
