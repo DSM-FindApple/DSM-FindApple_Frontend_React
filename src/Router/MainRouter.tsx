@@ -7,6 +7,7 @@ import {
   FindMap,
   LocationList,
  } from '../components';
+import Promise from '../components/Promise';
 
 const MainRouter = () => {
 
@@ -18,6 +19,7 @@ const MainRouter = () => {
           <Route path='/chatlist' component={ChatList} exact/>
           <Route path='/chat' component={Chat} exact />
           <Route path='/location' component={LocationList} exact />
+          <Route path='/test' component={Promise} exact />
         </Switch>
     </>
   );
