@@ -1,14 +1,14 @@
-import React, { useEffect } from 'react';
-import { useLocationSearch } from '../../libs/hooks/useLocationSearch';
+import React from 'react';
 
 const Promise = () => {
-  function testAlert() {
-    alert('test')
-  }
+
+    function testAlert() {
+        alert('test')
+    }
 
   return (
     <>
-      <button onClick={testAlert}>testAlert</button>
+        <button onClick={testAlert} style={{float: 'right'}}>testAlert</button>
     </>
   );
 }
