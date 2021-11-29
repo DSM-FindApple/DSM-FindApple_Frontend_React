@@ -24,7 +24,7 @@ const ChatContent: FC<Props> = ({data}) => {
       scrollRef.current.scrollIntoView({ inline: 'nearest', block: 'end' });
     }
   }
-  
+
   useEffect(() => {
     oldPageNum+1 === pageNum &&
     Scroll()
@@ -47,6 +47,9 @@ const ChatContent: FC<Props> = ({data}) => {
       setMessages([...res.data, ...messages])
       setPageNum(pageNum+1)
       setOldPageNum(pageNum)
+      if(pageNum === 0) {
+        Scroll()
+      }
     })
     .catch((err)=>{
       console.log(err)
@@ -83,7 +86,7 @@ const ChatContent: FC<Props> = ({data}) => {
                   {
                     i.messageType === "PROMISE" &&
                     <div key={i.promiseId}>
-                      <Promise sendUserId={i.kakaoId}/>
+                      <Promise sendUserId={i.kakaoId} promiseId={i.promiseId}/>
                     </div>
                   }
                 </>
@@ -109,7 +112,7 @@ const ChatContent: FC<Props> = ({data}) => {
                   {
                     i.messageType === "PROMISE" &&
                     <div key={i.promiseId}>
-                      <Promise sendUserId={i.kakaoId}/>
+                      <Promise sendUserId={i.kakaoId} promiseId={i.promiseId}/>
                     </div>
                   }
                 </>
