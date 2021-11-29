@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import * as S from './styled'
 import { BsArrowLeft } from 'react-icons/bs'
 import { AiFillSchedule } from 'react-icons/ai'
@@ -10,17 +10,34 @@ import chatApi from '../../../libs/api/chat/chatApi';
 
 const ChatTitle = () => {
   const chatUserState = useRecoilValue(chatState);
+  const [ promise, setPromise ] = useState<any>()
   const [ isOpenSetting, setIsOpenSetting ] = useState<boolean>(false)
   const history = useHistory()
 
   const onSelectDate = () => {
-    history.push('/location');
-    // (window as any).ChatDetail.startSelectDate();
+    if(!(window as any).ChatDetail){
+      history.push('/location');
+    }
+    else {
+      (window as any).ChatDetail.startSelectDate();
+    }
   }
 
   const onBack = () => {
     (window as any).ChatDetail.exitChatDetail();
   }
+
+  useEffect(() => {
+    chatApi.getPromise()
+    .then((res) => {
+      console.log(res.data)
+      const promiseArray = res.data.filter((e: any) => {return e.chatId === chatUserState.chatId})
+      promiseArray !== [] && setPromise(promiseArray[promiseArray.length-1])
+    })
+    .catch((err) => {
+      console.log(err)
+    })
+  },[])
 
   const onSetting = () => {
     setIsOpenSetting(!isOpenSetting)
@@ -29,16 +46,16 @@ const ChatTitle = () => {
   const onChatBan = (type: string) => {
     if(type === "post"){
       chatApi.postChatBan(chatUserState.targetId)
-      .then((res) => {
+      .then((_) => {
         alert("해당 유저를 차단했습니다.")
         setIsOpenSetting(true);
       })
       .catch((err) => {
         console.log(err)
       })
-    } else if(type==="delete"){
+    }else if(type==="delete"){
       chatApi.deleteChatBan(chatUserState.targetId)
-      .then((res) => {
+      .then((_) => {
         alert("해당 유저를 차단을 해제했습니다.")
         setIsOpenSetting(false);
       })
@@ -52,8 +69,8 @@ const ChatTitle = () => {
     <>
         <S.ChatTitleBox>
             <BsArrowLeft onClick={onBack}/>
-            <S.ChatPartner>
-              <div onClick={onSetting}>{chatUserState.title}</div>
+            <S.ChatPartner onClick={onSetting}>
+              <div>{chatUserState.title}</div>
               {
                 isOpenSetting ? 
                 <GoTriangleDown/>
@@ -65,7 +82,7 @@ const ChatTitle = () => {
               {
                 isOpenSetting &&
                 <S.ChatSetting>
-                    <div>채팅방 나가기</div>
+                    {/* <div>채팅방 나가기</div> */}
                     {
                       chatUserState.isBan ?
                       <div onClick={()=>onChatBan("delete")}>상대방 차단해제</div>
@@ -74,10 +91,18 @@ const ChatTitle = () => {
                     
                 </S.ChatSetting>
               }
-            <S.Appointment onClick={onSelectDate}>
-              <AiFillSchedule />
-              <span>약속잡기</span>
-            </S.Appointment>
+              {
+                !promise ? 
+                <S.Appointment onClick={onSelectDate}>
+                  <AiFillSchedule />
+                  <span>약속잡기</span>
+                </S.Appointment>
+                : 
+                  <S.Appointment onClick={onSelectDate}>
+                    <AiFillSchedule />
+                    <span>약속보기</span>
+                  </S.Appointment>
+              }
         </S.ChatTitleBox>
     </>
   );
