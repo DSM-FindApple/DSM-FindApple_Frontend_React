@@ -1,10 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 const Promise = () => {
 
-    function testAlert() {
-        alert('test')
-    }
+  useEffect(() => {
+    window.addEventListener("testAlert", async (e) => {
+      alert('asdaedjaoijdoia')
+  });
+
+  },[])
+
+  function testAlert() {
+      alert('test')
+  }
 
   return (
     <>
