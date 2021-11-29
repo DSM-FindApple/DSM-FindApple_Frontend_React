@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import * as S from './styled'
-import { BsArrowLeft } from 'react-icons/bs'
-import { AiFillSchedule } from 'react-icons/ai'
+import { BsArrowLeft, BsThreeDotsVertical } from 'react-icons/bs'
 import { useHistory } from 'react-router';
 import { useRecoilValue } from 'recoil';
 import { GoTriangleDown, GoTriangleUp } from 'react-icons/go'
@@ -13,15 +12,6 @@ const ChatTitle = () => {
   const [ promise, setPromise ] = useState<any>()
   const [ isOpenSetting, setIsOpenSetting ] = useState<boolean>(false)
   const history = useHistory()
-
-  const onSelectDate = () => {
-    if(!(window as any).ChatDetail){
-      history.push('/location');
-    }
-    else {
-      (window as any).ChatDetail.startSelectDate();
-    }
-  }
 
   const onBack = () => {
     (window as any).ChatDetail.exitChatDetail();
@@ -69,16 +59,10 @@ const ChatTitle = () => {
     <>
         <S.ChatTitleBox>
             <BsArrowLeft onClick={onBack}/>
-            <S.ChatPartner onClick={onSetting}>
-              <div>{chatUserState.title}</div>
-              {
-                isOpenSetting ? 
-                <GoTriangleDown/>
-                :
-                <GoTriangleUp/>
-              }
-              
+            <S.ChatPartner>
+              {chatUserState.title}
             </S.ChatPartner>
+            <BsThreeDotsVertical onClick={onSetting}/>
               {
                 isOpenSetting &&
                 <S.ChatSetting>
@@ -91,18 +75,7 @@ const ChatTitle = () => {
                     
                 </S.ChatSetting>
               }
-              {
-                !promise ? 
-                <S.Appointment onClick={onSelectDate}>
-                  <AiFillSchedule />
-                  <span>약속잡기</span>
-                </S.Appointment>
-                : 
-                  <S.Appointment onClick={onSelectDate}>
-                    <AiFillSchedule />
-                    <span>약속보기</span>
-                  </S.Appointment>
-              }
+
         </S.ChatTitleBox>
     </>
   );
