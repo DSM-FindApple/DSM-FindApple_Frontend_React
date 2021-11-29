@@ -28,6 +28,15 @@ export default {
             }
         })
     },
+    getPromiseInfo(promiseId: number){
+        return request({
+            url: `/promise/${promiseId}`,
+            method: 'get',
+            headers : {
+                Authorization: `${localStorage.getItem('access-token')}`
+            }
+        })
+    },
     postPromise(chatId: string, latitude: number, longitude: number, meetAt: string, script: string, targetId: number){
         return request({
             url: `/promise/${chatId}`,
