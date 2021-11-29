@@ -1,12 +1,13 @@
 import React, { FC, useEffect, useState } from 'react';
 import * as S from './styles'
 import { BsImage } from 'react-icons/bs'
-import { AiOutlineSend } from 'react-icons/ai'
+import { AiFillSchedule, AiOutlineSend } from 'react-icons/ai'
 import { GrClose } from 'react-icons/gr'
 import { useSocket } from '../../../libs/hooks/useSocket';
 import { useRecoilValue } from 'recoil';
 import { chatState } from '../../../Recoil/chat/chatState';
 import chatApi from '../../../libs/api/chat/chatApi';
+import { useHistory } from 'react-router';
 
 interface Props {
   chatId: string;
@@ -19,20 +20,20 @@ const ChatInput:FC<Props> = ({chatId, socket}) => {
   const [ message, setMessage ] = useState<string>('');
   const [ fileURL, setFileURL ] = useState<any>(null)
   const [ isShow, setIsShow ] = useState<boolean>(false)
+  const [ promise, setPromise ] = useState<any>()
+  const history = useHistory();
 
-  const onCloseImage = () => {
-    setIsShow(false)
-  }
-
-  // useEffect(() => {
-  //   chatApi.getChatHistoryMessgage(chatId, 1)
-  //   .then((res)=>{
-  //     console.log(res)
-  //   })
-  //   .catch((err) => {
-  //     console.log(err)
-  //   })
-  // },[])
+  useEffect(() => {
+    chatApi.getPromise()
+    .then((res) => {
+      console.log(res.data)
+      const promiseArray = res.data.filter((e: any) => {return e.chatId === chatUserState.chatId})
+      promiseArray !== [] && setPromise(promiseArray[promiseArray.length-1])
+    })
+    .catch((err) => {
+      console.log(err)
+    })
+  },[])
 
   const onGetImage = () => {
     (window as any).ChatDetail.startGetImage();
@@ -51,19 +52,20 @@ const ChatInput:FC<Props> = ({chatId, socket}) => {
     }
   }
 
+  const onSelectDate = () => {
+    if(!(window as any).ChatDetail){
+      history.push('/location');
+    }
+    else {
+      (window as any).ChatDetail.startSelectDate();
+    }
+  }
 
   return (
     <>
-      {
-        isShow && 
-        <S.ImgBox>
-          <GrClose onClick={onCloseImage} />
-          <img src={fileURL} />
-        </S.ImgBox>
-      }
       <S.ChatInputBox onSubmit={onSendMessage}>
         <S.InputBox>
-          <BsImage onClick={onGetImage}/>
+          <AiFillSchedule onClick={onSelectDate}/>
           <S.ChatInput onChange={(e: any) => setMessage(e.target.value)} value={message}/>
         </S.InputBox>
         <S.SendChatButton>
