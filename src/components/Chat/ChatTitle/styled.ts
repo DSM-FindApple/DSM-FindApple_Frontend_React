@@ -40,8 +40,8 @@ export const Appointment = styled.div`
 export const ChatSetting = styled.div`
     position: absolute;
     top: 50px;
-    left: 50%;
-    transform: translateX(-50%);
+    left: 100%;
+    transform: translateX(-100%);
     width: 100px;
     display: flex;
     flex-direction: column;
