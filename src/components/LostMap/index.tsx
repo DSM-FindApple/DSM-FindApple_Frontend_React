@@ -74,7 +74,7 @@ const LostMap = () => {
   return (
     <>
       <S.Wrapper >
-        <Header/>
+        <Header type="lost"/>
         <KakaoMap setLatLng={setLostArticleData}>
           {
                 lostData.map((data: any, index: number) => (
