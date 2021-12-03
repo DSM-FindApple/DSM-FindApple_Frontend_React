@@ -23,13 +23,13 @@ interface ILocation {
 
 const Location = ({keyword}: any) => {
     const chatUserState = useRecoilValue(chatState)
-    const [data, loading, last] = useInfiniteScroll((page)=>LocationApi.getLocationList(keyword, page), keyword)
+    const [data, loading, last] = useInfiniteScroll((page)=>LocationApi.getLocationList(keyword, page), keyword, 0)
 
     const chatIdTest = "daa4bbd6-d4ac-42b2-8120-2c85e81c76d4"
     
     const onLocationChoice = (i: ILocation) => {
         if(window.confirm(`${i.place_name}을/를 선택하시겠습니까?`)){
-            chatApi.postPromise(chatIdTest, parseFloat(i.y), parseFloat(i.x), "2021-11-22T13:13:45.635Z", "약속", 1940044301)
+            chatApi.postPromise(chatIdTest, parseFloat(i.y), parseFloat(i.x), "2021-12-25T13:13:45.635Z", "약속", 1940044301)
             .then((res) => {
                 console.log(res)
             })
