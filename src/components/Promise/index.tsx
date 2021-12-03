@@ -4,8 +4,18 @@ export function testAlert() {
   alert('test')
 }
 
+
+(window as any).updateValue = function() {
+  alert('update')
+};
+
+
 const Promise = () => {
   const [ number, setNumber ] = useState(0);
+
+  (window as any).setCallback = function() {
+    alert('callback')
+  };
   
   useEffect(() => {
     window.addEventListener("testAlert", async (e) => {
