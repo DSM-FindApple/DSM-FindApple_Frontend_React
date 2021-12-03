@@ -6,11 +6,13 @@ import io from 'socket.io-client';
 import chatApi from '../../libs/api/chat/chatApi';
 import { useRecoilState } from 'recoil';
 import { tokenState } from '../../Recoil/auth/authState';
+import NonData from './Container/NonData'
 
 
 const ChatList = () => {
-  const [ data, setData ] = useState([]);
+  const [ data, setData ] = useState<any[]>([]);
   const [ token, setToken ] = useRecoilState(tokenState);
+  const [ error, setError ] = useState(false);
 
   (window as any).sendToken = function(token: any) {
     localStorage.setItem('access-token', token)
@@ -24,20 +26,24 @@ const ChatList = () => {
       setData(res.data)
     })
     .catch((err) => {
+      setError(true)
       console.log(err)
     })
   },[token])
+
+  console.log(data)
 
   return (
     <>
         <S.Wrapper>
             {
-              data !== [] &&
+              !error ?
               data.map((i: any, index) => {
                 return (
                   <ChatListContainer {...i} key={index}/>
                 )
               })
+              : <NonData />
             }
         </S.Wrapper>
     </>
