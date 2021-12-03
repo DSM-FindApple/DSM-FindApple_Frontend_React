@@ -18,22 +18,24 @@ const ChatListContainer: FC<Props> = ({chatId, isBan, targetProfileUrl, title, t
   const history = useHistory()
 
   const onChatLink = () => {
-    setChatUserState({
+    let data = {
       chatId: chatId,
       isBan: isBan,
-      targetProfileUrl: targetProfileUrl,
       title: title,
       topMessage: topMessage,
       targetId: targetId
-    })
-    history.push(`/chat?id=${chatId}`);
-    // (window as any).ChatDetail.startChatDetail(chatId);
+    }
+    if(!(window as any).ChatDetail){
+      setChatUserState(data)
+      history.push(`/chat?id=${chatId}`);
+    }else {
+      (window as any).ChatDetail.startChatDetail(chatId, data);
+    }
   }
 
   return (
     <>
         <S.ContainerWrapper onClick={onChatLink}>
-            {/* <img src={} alt="asd"> */}
             <div>
               <div style={{width: '40px', height: "40px", borderRadius: '50%', backgroundColor: "blue"}} />
               <S.ChatInfo read={true}>
