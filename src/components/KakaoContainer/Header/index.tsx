@@ -1,12 +1,24 @@
 import * as S from './styles'
 import { BiSearch } from 'react-icons/bi'
 import { category } from '../../../libs/data/Category';
+import { FC } from 'react';
+import { useHistory } from 'react-router';
 
-const Header = () => {
+interface Props {
+  type: string
+}
+
+const Header: FC<Props> = ({type}) => {
+  const history = useHistory()
+  const onSearch = () => {
+    history.push(`/search/${type}`)
+  }
+
+
   return (
     <>
       <S.Wrapper>
-        <S.InputBox>
+        <S.InputBox onClick={onSearch}>
           <S.Input />
           <S.Button>
             <BiSearch/>

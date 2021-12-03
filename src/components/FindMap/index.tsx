@@ -60,7 +60,7 @@ const FindMap = () => {
   return (
     <>
       <S.Wrapper >
-        <Header/>
+        <Header type="find"/>
         <KakaoMap setLatLng={setFindArticleData}>
           {
                 findData.map((data: any, index: number) => (
