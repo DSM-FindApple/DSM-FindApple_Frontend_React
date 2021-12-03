@@ -1,8 +1,12 @@
 import React, { useEffect, useState } from 'react';
 
+export function testAlert() {
+  alert('test')
+}
+
 const Promise = () => {
   const [ number, setNumber ] = useState(0);
-
+  
   useEffect(() => {
     window.addEventListener("testAlert", async (e) => {
       alert('asdaedjaoijdoia')
@@ -11,14 +15,11 @@ const Promise = () => {
       alert('numberAdd')
     })
   },[]);
-
-  function testAlert() {
-      alert('test')
-  }
-
+  
   const NumberAdd = () => {
     setNumber(number+1)
   }
+  
 
   return (
     <>
