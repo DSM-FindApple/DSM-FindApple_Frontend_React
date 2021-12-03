@@ -9,9 +9,19 @@ interface Props {
 }
 
 const Header: FC<Props> = ({type}) => {
+  
   const history = useHistory()
+
   const onSearch = () => {
-    history.push(`/search/${type}`)
+    if(!(window as any).Lost || !(window as any).Find){
+      history.push(`/search/${type}`)
+    }else {
+      if(type === 'lost'){
+        (window as any).Lost.startSearch('lost')
+      } else {
+        (window as any).Find.startSearch('find')
+      }
+    }
   }
 
 
