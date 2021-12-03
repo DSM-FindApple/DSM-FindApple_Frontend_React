@@ -4,21 +4,23 @@ import ChatListContainer from './Container/ChatListContainer';
 import * as S from './styles'
 import io from 'socket.io-client';
 import chatApi from '../../libs/api/chat/chatApi';
-import { useRecoilValue } from 'recoil';
-import { tokenState } from '../../Recoil/auth/authApi';
+import { useRecoilState } from 'recoil';
+import { tokenState } from '../../Recoil/auth/authState';
 
 
 const ChatList = () => {
   const [ data, setData ] = useState([]);
-  const token = useRecoilValue(tokenState)
+  const [ token, setToken ] = useRecoilState(tokenState);
+
+  (window as any).sendToken = function(token: string) {
+    localStorage.setItem('access-token', token)
+    setToken(token)
+  }
 
   useEffect(() => {
-    console.log(token, 'asd')
-    console.log(localStorage.getItem('access-token'), 'asd')
     chatApi.getChatList()
     .then((res) => {
       setData(res.data)
-      console.log(res.data)
     })
     .catch((err) => {
       console.log(err)
