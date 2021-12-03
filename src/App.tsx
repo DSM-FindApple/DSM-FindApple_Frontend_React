@@ -4,8 +4,8 @@ import RootRouter from './Router/RootRouter';
 import {Global} from '@emotion/react'
 import { Suspense, useEffect } from 'react';
 import { useHistory } from 'react-router';
-import { RecoilRoot, useSetRecoilState } from 'recoil';
-import { tokenState } from './Recoil/auth/authApi';
+import { useRecoilState, useSetRecoilState } from 'recoil';
+import { tokenState } from './Recoil/auth/authState';
 
 function App() {
   const setToken = useSetRecoilState(tokenState);
