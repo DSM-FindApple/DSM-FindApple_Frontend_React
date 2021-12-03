@@ -18,7 +18,11 @@ const ChatList = () => {
     localStorage.setItem('access-token', token)
     setToken(token)
     alert(token)
-  }
+  };
+
+  (window as any).setCallback = function() {
+    alert('callback')
+  };
 
   useEffect(() => {
     chatApi.getChatList()
