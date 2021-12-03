@@ -25,6 +25,10 @@ const Promise = () => {
       alert('numberAdd')
     })
   },[]);
+
+  (window as any).NumberAdd = function() {
+    setNumber(number+1)
+  };
   
   const NumberAdd = () => {
     setNumber(number+1)
