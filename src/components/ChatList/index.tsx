@@ -15,6 +15,7 @@ const ChatList = () => {
   (window as any).sendToken = function(token: string) {
     localStorage.setItem('access-token', token)
     setToken(token)
+    alert(token)
   }
 
   useEffect(() => {
