@@ -7,21 +7,11 @@ import { useHistory } from 'react-router';
 import { RecoilRoot } from 'recoil';
 
 function App() {
-  const history = useHistory()
-  useEffect(() => {
-    window.addEventListener('LocationChoice', async (e) => {
-      history.push('/location')
-    })
-    window.addEventListener('android', async (e) => {
-      history.push('/location')
-    })    
-  },[])
 
-  const LocationChoice = () => {
-    history.push('/location')
+  (window as any).sendToken = function(token: string) {
+    localStorage.setItem('access-token', token)
   }
   
-
   return (
     <>
       <RecoilRoot>
