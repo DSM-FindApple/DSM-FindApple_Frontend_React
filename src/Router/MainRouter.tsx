@@ -6,7 +6,7 @@ import {
   LostMap,
   FindMap,
   LocationList,
-  Search,
+  SearchList,
  } from '../components';
 import Promise from '../components/Promise';
 
@@ -22,7 +22,7 @@ const MainRouter = () => {
           <Route path='/chat' component={Chat} exact />
           <Route path='/location' component={LocationList} exact />
           <Route path='/test' component={Promise} exact />
-          <Route path='/search/:type' component={Search} exact />
+          <Route path='/search/:type' component={SearchList} exact />
         </Switch>
     </>
   );
