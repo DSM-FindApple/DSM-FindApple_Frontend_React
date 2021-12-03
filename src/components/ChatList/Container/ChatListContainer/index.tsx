@@ -29,7 +29,7 @@ const ChatListContainer: FC<Props> = ({chatId, isBan, targetProfileUrl, title, t
       setChatUserState(data)
       history.push(`/chat?id=${chatId}`);
     }else {
-      (window as any).ChatDetail.startChatDetail(chatId, data);
+      (window as any).ChatDetail.startChatDetail(chatId, isBan, title, topMessage, targetId);
     }
   }
 
