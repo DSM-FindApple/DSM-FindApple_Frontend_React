@@ -23,6 +23,7 @@ const MainRouter = () => {
           <Route path='/location' component={LocationList} exact />
           <Route path='/test' component={Promise} exact />
           <Route path='/search/:type' component={SearchList} exact />
+          <Route path='/search' component={SearchList} exact />
         </Switch>
     </>
   );
