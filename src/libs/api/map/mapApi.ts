@@ -29,9 +29,9 @@ export default {
             }
         })
     },
-    getFindTitleSearch(title: string){
+    getFindTitleSearch(title: string, page: number){
         return request({
-            url: `/find/search/title/1?${title}`,
+            url: `/find/search/title/${page}?title=${title}`,
             method: 'get',
             headers : {
                 Authorization: `${localStorage.getItem('access-token')}`
@@ -47,9 +47,9 @@ export default {
             }
         })
     },
-    getLostTitleSearch(title: string){
+    getLostTitleSearch(title: string,page: number){
         return request({
-            url: `/lost/search/title/1?${title}`,
+            url: `/lost/search/title/${page}?title=${title}`,
             method: 'get',
             headers : {
                 Authorization: `${localStorage.getItem('access-token')}`
