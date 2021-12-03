@@ -4,10 +4,10 @@ import * as S from './styles'
 import { IoIosArrowBack } from 'react-icons/io';
 import { AiOutlineSearch } from 'react-icons/ai'
 import Search from './Search';
+import queryString from 'query-string'
 
-const SearchList = ({match}: any) => {
-    const { type } = match.params;
-    console.log(type)
+const SearchList = ({location}: any) => {
+    const query = queryString.parse(location.search);
     const [ keyword, setKeyword ] = useState('');
     const [ prop, setProp ] = useState('');
 
@@ -16,19 +16,23 @@ const SearchList = ({match}: any) => {
         setProp(keyword)
     }
 
+    const onBack = () => {
+        (window as any).Search.back()
+    }
+
     return (
         <>
             <S.SearchListWrapper>
                 <S.Box>
                     <S.SearchListBox onSubmit={onSearch}>
-                        <IoIosArrowBack />
+                        <IoIosArrowBack onClick={onBack}/>
                         <S.SearchInput onChange={(e) => setKeyword(e.target.value)}/>
                         <AiOutlineSearch/>
                     </S.SearchListBox>
                 </S.Box>
                 {
                     prop &&
-                    <Search keyword={prop} type={type}/>
+                    <Search keyword={prop} type={query.type}/>
                 }
             </S.SearchListWrapper>
         </>
