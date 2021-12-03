@@ -12,7 +12,7 @@ const ChatList = () => {
   const [ data, setData ] = useState([]);
   const [ token, setToken ] = useRecoilState(tokenState);
 
-  (window as any).sendToken = function(token: string) {
+  (window as any).sendToken = function(token: any) {
     localStorage.setItem('access-token', token)
     setToken(token)
     alert(token)
