@@ -4,22 +4,21 @@ import RootRouter from './Router/RootRouter';
 import {Global} from '@emotion/react'
 import { Suspense, useEffect } from 'react';
 import { useHistory } from 'react-router';
-import { RecoilRoot } from 'recoil';
+import { RecoilRoot, useSetRecoilState } from 'recoil';
+import { tokenState } from './Recoil/auth/authApi';
 
 function App() {
+  const setToken = useSetRecoilState(tokenState);
 
   (window as any).sendToken = function(token: string) {
     localStorage.setItem('access-token', token)
+    setToken(token)
   }
   
   return (
     <>
-      <RecoilRoot>
-        <Suspense fallback={<div>...loading</div>}>
-          <Global styles={GlobalStyle} />
-          <RootRouter />
-        </Suspense>
-      </RecoilRoot>
+      <Global styles={GlobalStyle} />
+      <RootRouter />
     </>
   );
 }
