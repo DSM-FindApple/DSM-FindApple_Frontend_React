@@ -11,11 +11,9 @@ import { chatMessageState, chatState } from '../../Recoil/chat/chatState';
 
 const Chat: FC<RouteComponentProps> = ({location}: any) => {
   const query = queryString.parse(location.search);
-  const history = useHistory()
   const setChatUserState = useSetRecoilState(chatState)
   const [chatMessage, setChatMessage ] = useRecoilState(chatMessageState)
   const {socket} = useSocket();
-  // const [ chatlist, setChatlist ] = useState(chatMessage)
   let chatlist: any[] = chatMessage;
 
   (window as any).chatInfo = function(chatId: string, isBan: boolean, title: string, topMessage: string, targetId: number) {
