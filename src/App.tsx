@@ -2,9 +2,7 @@ import './App.css';
 import { GlobalStyle } from './styles/GlobalStyles';
 import RootRouter from './Router/RootRouter';
 import {Global} from '@emotion/react'
-import { Suspense, useEffect } from 'react';
-import { useHistory } from 'react-router';
-import { useRecoilState, useSetRecoilState } from 'recoil';
+import { useSetRecoilState } from 'recoil';
 import { tokenState } from './Recoil/auth/authState';
 
 function App() {
