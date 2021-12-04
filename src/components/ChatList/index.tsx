@@ -14,12 +14,6 @@ const ChatList = () => {
   const [ token, setToken ] = useRecoilState(tokenState);
   const [ error, setError ] = useState(false);
 
-  (window as any).sendToken = function(token: any) {
-    localStorage.setItem('access-token', token)
-    setToken(token)
-    alert(token)
-  };
-
   (window as any).setCallback = function() {
     alert('callback')
   };
