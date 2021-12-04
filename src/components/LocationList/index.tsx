@@ -1,21 +1,33 @@
 import React, { useEffect, useState } from 'react';
-import LocationApi from '../../libs/api/Location/LocationApi';
 import * as S from './styles'
 import { IoIosArrowBack } from 'react-icons/io';
 import { AiOutlineSearch } from 'react-icons/ai'
-import { useInfiniteScroll } from '../../libs/hooks/useInfiniteScroll';
 import Location from './Location';
 
-const LocationList = ({location}: any) => {
+const LocationList = () => {
     const [ keyword, setKeyword ] = useState('');
     const [ prop, setProp ] = useState('');
-    
-    console.log(location)
+    const [ promiseData, setPromiseData ] = useState({
+        chatId: '',
+        date: '',
+        targetId: -1
+    });
+
+    useEffect(() => {
+    },[promiseData])
 
     const onSearch = (e: any) => {
         e.preventDefault()
         setProp(keyword)
-    }
+    };
+
+    (window as any).promiseLocation = function(chatId: string, date: string, targetId: number) {
+        setPromiseData({
+            chatId: chatId,
+            date: date,
+            targetId: targetId
+        })
+    };
 
     return (
         <>
@@ -29,7 +41,7 @@ const LocationList = ({location}: any) => {
                 </S.Box>
                 {
                     prop &&
-                    <Location keyword={prop}/>
+                    <Location keyword={prop} {...promiseData}/>
                 }
             </S.LocationListWrapper>
         </>
