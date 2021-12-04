@@ -11,7 +11,6 @@ const ChatTitle = () => {
   const chatUserState = useRecoilValue(chatState);
   const [ promise, setPromise ] = useState<any>()
   const [ isOpenSetting, setIsOpenSetting ] = useState<boolean>(false)
-  const history = useHistory()
 
   const onBack = () => {
     (window as any).ChatDetail.exitChatDetail();
@@ -66,7 +65,6 @@ const ChatTitle = () => {
               {
                 isOpenSetting &&
                 <S.ChatSetting>
-                    {/* <div>채팅방 나가기</div> */}
                     {
                       chatUserState.isBan ?
                       <div onClick={()=>onChatBan("delete")}>상대방 차단해제</div>
