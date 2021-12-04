@@ -42,7 +42,7 @@ const LocationList = () => {
                     <S.SearchBox onSubmit={onSearch}>
                         <IoIosArrowBack onClick={onBack}/>
                         <S.SearchInput onChange={(e) => setKeyword(e.target.value)}/>
-                        <AiOutlineSearch/>
+                        <AiOutlineSearch onClick={onSearch}/>
                     </S.SearchBox>
                 </S.Box>
                 {
