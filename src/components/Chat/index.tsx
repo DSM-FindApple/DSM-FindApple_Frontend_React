@@ -6,15 +6,18 @@ import * as S from './styles'
 import queryString from "query-string";
 import { RouteComponentProps, useHistory } from 'react-router';
 import { useSocket } from '../../libs/hooks/useSocket';
-import { useRecoilState, useSetRecoilState } from 'recoil';
+import { useRecoilState } from 'recoil';
 import { chatMessageState, chatState } from '../../Recoil/chat/chatState';
 
 const Chat: FC<RouteComponentProps> = ({location}: any) => {
   const query = queryString.parse(location.search);
-  const setChatUserState = useSetRecoilState(chatState)
+  const [  chatUserState ,setChatUserState] = useRecoilState(chatState)
   const [chatMessage, setChatMessage ] = useRecoilState(chatMessageState)
   const {socket} = useSocket();
   let chatlist: any[] = chatMessage;
+
+  useEffect(() => {
+  },[chatUserState]);
 
   (window as any).chatInfo = function(chatId: string, isBan: boolean, title: string, topMessage: string, targetId: number) {
     setChatUserState({
