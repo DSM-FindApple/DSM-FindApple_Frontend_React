@@ -45,13 +45,11 @@ export default {
                 Authorization: `${localStorage.getItem('access-token')}`
             },
             data : {
-                promiseRequest: {
-                    latitude: latitude,
-                    longitude: longitude,
-                    meetAt: meetAt,
-                    script: script,
-                    targetId: targetId
-                }
+                latitude: latitude,
+                longitude: longitude,
+                meetAt: meetAt,
+                script: script,
+                targetId: targetId
             }
         })
     },
