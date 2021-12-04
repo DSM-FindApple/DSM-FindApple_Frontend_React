@@ -22,6 +22,7 @@ const ChatList = () => {
     chatApi.getChatList()
     .then((res) => {
       setData(res.data)
+      setError(false)
     })
     .catch((err) => {
       setError(true)
