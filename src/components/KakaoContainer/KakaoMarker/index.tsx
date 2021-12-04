@@ -24,19 +24,8 @@ interface Props {
   const KakaoMarker: FC<Props> = (props) => {
     const {
       type,
-      category,
-      detail,
-      findAt,
-      findId,
-      findImages,
-      findUser,
-      kakaoId,
       latitude,
       longitude,
-      profileUrl,
-      title,
-      topComment,
-      writeAt,
     } = props
     const [ isShow, setIsShow ] = useState<boolean>(false)
     const [ sizeData, setSizeData ] = useState({width: 49, height: 54})
