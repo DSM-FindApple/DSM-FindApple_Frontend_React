@@ -1,10 +1,9 @@
-import React, { FC, useCallback, useEffect, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import * as S from './styles'
 import { useRecoilValue } from 'recoil';
 import { chatState } from '../../../../Recoil/chat/chatState';
 import { useSocket } from '../../../../libs/hooks/useSocket';
 import chatApi from '../../../../libs/api/chat/chatApi';
-import { useLocationSearch } from '../../../../libs/hooks/useLocationSearch';
 
 interface Props {
     sendUserId: string
@@ -45,9 +44,7 @@ const Promise:FC<Props> = ({sendUserId, promiseId}) => {
         }))
     }
     
-    return (
-
-        
+    return (        
         <>
             <S.PromiseWrapper isMy={sendUserId !== chatUserState.targetId ? "right" : "left"}>
                 <S.PromiseBox isMy={sendUserId !== chatUserState.targetId ? "#FFF4CC" : "#E3E6EA"}>
