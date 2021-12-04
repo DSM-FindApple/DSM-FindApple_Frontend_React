@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import { useHistory } from 'react-router';
 import chatApi from '../../../libs/api/chat/chatApi';
 import LocationApi from '../../../libs/api/Location/LocationApi';
 import { useInfiniteScroll } from '../../../libs/hooks/useInfiniteScroll';
@@ -27,13 +28,14 @@ interface Props {
 }
 
 const Location: FC<Props> = ({keyword, chatId, date, targetId}) => {
+    const history = useHistory()
     const [data, loading, _] = useInfiniteScroll((page)=>LocationApi.getLocationList(keyword, page), keyword, 0);
     
     const onLocationChoice = (i: ILocation) => {
         if(window.confirm(`${i.place_name}을/를 선택하시겠습니까?`)){
-            chatApi.postPromise(chatId, parseFloat(i.y), parseFloat(i.x), date, "약속을 잡아요", targetId)
+            chatApi.postPromise(chatId, parseFloat(i.y), parseFloat(i.x), `${date}:00.000Z`, "약속을 잡아요", targetId)
             .then((res) => {
-                console.log(res)
+                history.push(`/chat?id=${chatId}`)
             })
             .catch((err) => {
                 console.log(err)
