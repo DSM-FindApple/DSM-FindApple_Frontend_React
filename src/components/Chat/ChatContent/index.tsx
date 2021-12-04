@@ -58,7 +58,7 @@ const ChatContent: FC<Props> = ({data}) => {
 
   useEffect(() => {
     onHistoryMessage()
-  },[chatUserState.chatId])
+  },[chatUserState])
 
   const onAddMessage = ()=> {
     onHistoryMessage()
@@ -90,7 +90,6 @@ const ChatContent: FC<Props> = ({data}) => {
                     </div>
                   }
                 </>
-                
               )
             })
           }
