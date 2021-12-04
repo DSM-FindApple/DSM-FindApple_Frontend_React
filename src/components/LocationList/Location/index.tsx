@@ -1,9 +1,7 @@
-import React, { useEffect } from 'react';
-import { useRecoilValue } from 'recoil';
+import React, { FC } from 'react';
 import chatApi from '../../../libs/api/chat/chatApi';
 import LocationApi from '../../../libs/api/Location/LocationApi';
 import { useInfiniteScroll } from '../../../libs/hooks/useInfiniteScroll';
-import { chatState } from '../../../Recoil/chat/chatState';
 import * as S from '../styles'
 
 interface ILocation {
@@ -21,15 +19,19 @@ interface ILocation {
     y: string
 }
 
-const Location = ({keyword}: any) => {
-    const chatUserState = useRecoilValue(chatState)
-    const [data, loading, last] = useInfiniteScroll((page)=>LocationApi.getLocationList(keyword, page), keyword, 0)
+interface Props {
+    keyword: string,
+    chatId: string,
+    date: string,
+    targetId: number
+}
 
-    const chatIdTest = "daa4bbd6-d4ac-42b2-8120-2c85e81c76d4"
+const Location: FC<Props> = ({keyword, chatId, date, targetId}) => {
+    const [data, loading, _] = useInfiniteScroll((page)=>LocationApi.getLocationList(keyword, page), keyword, 0);
     
     const onLocationChoice = (i: ILocation) => {
         if(window.confirm(`${i.place_name}을/를 선택하시겠습니까?`)){
-            chatApi.postPromise(chatIdTest, parseFloat(i.y), parseFloat(i.x), "2021-12-25T13:13:45.635Z", "약속", 1940044301)
+            chatApi.postPromise(chatId, parseFloat(i.y), parseFloat(i.x), date, "약속을 잡아요", targetId)
             .then((res) => {
                 console.log(res)
             })
