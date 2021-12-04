@@ -14,6 +14,10 @@ interface Props {
 }
 
 const KakaoMap: FC<Props> = ({children, setLatLng}) => {
+  const [ center, setCenter ] = useState({
+    lat: 36.39155703543644, 
+    lng: 127.3633693928144,
+  })
   const onCenter = (level: number, center: any, nePath: any, swPath: any ) => {
     setLatLng({
       startLatitude: swPath.Ma,
@@ -21,15 +25,22 @@ const KakaoMap: FC<Props> = ({children, setLatLng}) => {
       startLongitude: swPath.La,
       endLongitude: nePath.La,
     })
-}
+  }
+
+  (window as any).currentLocation = function(latitude: number, longuitude: number) {
+    setCenter({
+      lat: latitude,
+      lng: longuitude,
+    })
+  }
 
     return (
         <Map // 지도를 표시할 Container
           center={{
-            // 지도의 중심좌표
-            lat: 36.39155703543644, 
-            lng: 127.3633693928144,
+            lat: center.lat,
+            lng: center.lng
           }}
+          isPanto={true}
           style={{
             // 지도의 크기
             width: "100vw",
