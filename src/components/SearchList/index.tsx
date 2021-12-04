@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from 'react';
-import LocationApi from '../../libs/api/Location/LocationApi';
+import React, { useState } from 'react';
 import * as S from './styles'
 import { IoIosArrowBack } from 'react-icons/io';
 import { AiOutlineSearch } from 'react-icons/ai'
