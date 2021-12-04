@@ -35,7 +35,7 @@ const Location: FC<Props> = ({keyword, chatId, date, targetId}) => {
         if(window.confirm(`${i.place_name}을/를 선택하시겠습니까?`)){
             chatApi.postPromise(chatId, parseFloat(i.y), parseFloat(i.x), `2021-12-09T12:40:12.935Z`, "약속을 잡아요", targetId)
             .then((res) => {
-                (window as any).ChatDetail.refreshChatRoom()
+                (window as any).ChatDetail.refreshChatRoom();
             })
             .catch((err) => {
                 console.log(err)
