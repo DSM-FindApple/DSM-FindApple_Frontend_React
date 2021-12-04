@@ -1,7 +1,7 @@
 import React, { FC, useEffect, useRef, useState } from 'react';
-import { useRecoilState, useRecoilValue } from 'recoil';
+import { useRecoilValue } from 'recoil';
 import chatApi from '../../../libs/api/chat/chatApi';
-import { chatMessageState, chatState } from '../../../Recoil/chat/chatState';
+import { chatState } from '../../../Recoil/chat/chatState';
 import MyChat from './Myself';
 import PartnerChat from './Partner';
 import Promise from './Promise';
