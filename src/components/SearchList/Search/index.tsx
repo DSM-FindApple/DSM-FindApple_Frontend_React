@@ -1,18 +1,11 @@
-import React, { useEffect } from 'react';
-import { useRecoilValue } from 'recoil';
-import chatApi from '../../../libs/api/chat/chatApi';
-import LocationApi from '../../../libs/api/Location/LocationApi';
+import React from 'react';
 import mapApi from '../../../libs/api/map/mapApi';
 import { useInfiniteScroll } from '../../../libs/hooks/useInfiniteScroll';
-import { chatState } from '../../../Recoil/chat/chatState';
 import * as S from '../styles'
 
-const Search = ({keyword, type}: any) => {
-    const chatUserState = useRecoilValue(chatState)
+const Search = ({keyword}: any) => {
     const geocoder = new kakao.maps.services.Geocoder();
-    const [data, loading, last] = useInfiniteScroll((page)=>mapApi.getFindTitleSearch(keyword, page), keyword, -1)
-    console.log(data, 'ㅁㄴㅇ')
-    
+    const [data, loading, _] = useInfiniteScroll((page)=>mapApi.getFindTitleSearch(keyword, page), keyword, -1)
 
     return (
         <>
