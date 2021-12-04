@@ -33,9 +33,9 @@ const Location: FC<Props> = ({keyword, chatId, date, targetId}) => {
     
     const onLocationChoice = (i: ILocation) => {
         if(window.confirm(`${i.place_name}을/를 선택하시겠습니까?`)){
-            chatApi.postPromise(chatId, parseFloat(i.y), parseFloat(i.x), `${date}:00.000Z`, "약속을 잡아요", targetId)
+            chatApi.postPromise(chatId, parseFloat(i.y), parseFloat(i.x), `2021-12-09T12:40:12.935Z`, "약속을 잡아요", targetId)
             .then((res) => {
-                history.push(`/chat?id=${chatId}`)
+                (window as any).ChatDetail.refreshChatRoom()
             })
             .catch((err) => {
                 console.log(err)
