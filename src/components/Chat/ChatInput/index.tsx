@@ -1,9 +1,6 @@
 import React, { FC, useEffect, useState } from 'react';
 import * as S from './styles'
-import { BsImage } from 'react-icons/bs'
 import { AiFillSchedule, AiOutlineSend } from 'react-icons/ai'
-import { GrClose } from 'react-icons/gr'
-import { useSocket } from '../../../libs/hooks/useSocket';
 import { useRecoilValue } from 'recoil';
 import { chatState } from '../../../Recoil/chat/chatState';
 import chatApi from '../../../libs/api/chat/chatApi';
@@ -18,9 +15,7 @@ const ChatInput:FC<Props> = ({chatId, socket}) => {
   const chatUserState = useRecoilValue(chatState);
   
   const [ message, setMessage ] = useState<string>('');
-  const [ fileURL, setFileURL ] = useState<any>(null)
-  const [ isShow, setIsShow ] = useState<boolean>(false)
-  const [ promise, setPromise ] = useState<any>()
+  const [ _, setPromise ] = useState<any>();
   const history = useHistory();
 
   useEffect(() => {
@@ -34,10 +29,6 @@ const ChatInput:FC<Props> = ({chatId, socket}) => {
       console.log(err)
     })
   },[])
-
-  const onGetImage = () => {
-    (window as any).ChatDetail.startGetImage();
-  }
 
   const onSendMessage = (e: any) => {
     e.preventDefault()
