@@ -1,5 +1,7 @@
 import React, { FC, ReactNode, useState } from 'react';
 import { Map } from 'react-kakao-maps-sdk'
+import { useRecoilState } from 'recoil';
+import { mapState } from '../../../Recoil/map/mapState';
 
 interface ILatLng {
   startLatitude: number,
@@ -14,10 +16,7 @@ interface Props {
 }
 
 const KakaoMap: FC<Props> = ({children, setLatLng}) => {
-  const [ center, setCenter ] = useState({
-    lat: 36.39155703543644, 
-    lng: 127.3633693928144,
-  })
+  const [ center, setCenter ] = useRecoilState(mapState)
   const onCenter = (level: number, center: any, nePath: any, swPath: any ) => {
     setLatLng({
       startLatitude: swPath.Ma,
