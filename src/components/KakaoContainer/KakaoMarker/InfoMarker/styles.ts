@@ -7,10 +7,10 @@ interface Props {
 
 export const InfoMarkerWrapper = styled.div<Props>`
     background-image: url(${(props) => props.type === 'lost' ? YellowSpeechBubble : BlueSpeechBubble});
-    background-size: 250px 250px;
+    background-size: 250px 80px;
     box-sizing: border-box;
     width: 250px;
-    height: 250px;
+    height: 80px;
     padding: 13px 9px;
     font-size: 18px;
     img{
