@@ -15,7 +15,7 @@ const ChatInput:FC<Props> = ({chatId, socket}) => {
   const chatUserState = useRecoilValue(chatState);
   
   const [ message, setMessage ] = useState<string>('');
-  const [ _, setPromise ] = useState<any>();
+  const [ promise, setPromise ] = useState<any>();
   const history = useHistory();
 
   useEffect(() => {
@@ -45,7 +45,11 @@ const ChatInput:FC<Props> = ({chatId, socket}) => {
 
   const onSelectDate = () => {
     if(!(window as any).ChatDetail){
-      history.push('/location');
+      promise !== [] && window.confirm('이미 약속이 있습니다. 약속을 완료하시겠습니까?') && 
+      socket.current.emit("sendMessage",JSON.stringify({
+        chatId: chatId,
+        message: '약속이 완료되었습니다.'
+      }))
     }
     else {
       (window as any).ChatDetail.startSelectDate();
