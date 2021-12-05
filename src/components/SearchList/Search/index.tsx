@@ -31,6 +31,7 @@ const Search = ({keyword, type}: any) => {
                             : address=result[0].address.address_name
                         }  
                     })
+                    let time = i.findAt.split('T')
                     return (
                         <S.SearchBox key={i.kakaoId+'+'+index} onClick={() => onSearch(i.latitude, i.longitude)}>
                             <S.PlaceName>
@@ -38,7 +39,7 @@ const Search = ({keyword, type}: any) => {
                             </S.PlaceName>
                             <S.Address>{i.detail}</S.Address>
                             <S.Address>{address}</S.Address>
-                            <S.Address>{i.findAt}</S.Address>
+                            <S.Address>{`${time[0]} ${time[1]}`}</S.Address>
                         </S.SearchBox>
                     )
                 })
