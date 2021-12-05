@@ -55,7 +55,7 @@ export default {
     },
     putPromiseAccept(promiseId: number){
         return request({
-            url: `/promise/${promiseId}`,
+            url: `/promise/${promiseId}?isAccept=true`,
             method: 'put',
             headers : {
                 Authorization: `${localStorage.getItem('access-token')}`
