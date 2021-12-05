@@ -36,6 +36,7 @@ const Location: FC<Props> = ({keyword, chatId, date, targetId}) => {
             chatApi.postPromise(chatId, parseFloat(i.y), parseFloat(i.x), `${date}:00.000Z`, "약속을 잡아요", targetId)
             .then((res) => {
                 (window as any).ChatDetail.refreshChatRoom();
+                alert('약속잡기를 성공했습니다.')
             })
             .catch((err) => {
                 console.log(err)
