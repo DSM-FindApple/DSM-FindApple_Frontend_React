@@ -6,7 +6,7 @@ import { useInfiniteScroll } from '../../../libs/hooks/useInfiniteScroll';
 import { mapState } from '../../../Recoil/map/mapState';
 import * as S from '../styles'
 
-const Search = ({keyword}: any) => {
+const Search = ({keyword, type}: any) => {
     const history = useHistory()
     const geocoder = new kakao.maps.services.Geocoder();
     const [data, loading, _] = useInfiniteScroll((page)=>mapApi.getFindTitleSearch(keyword, page), keyword, -1)
@@ -17,7 +17,7 @@ const Search = ({keyword}: any) => {
             lat: lat,
             lng: lng
         })
-        history.goBack()
+        history.push(`/${type}`)
     }
 
     return (
