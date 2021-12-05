@@ -44,12 +44,13 @@ const ChatInput:FC<Props> = ({chatId, socket}) => {
   }
 
   const onSelectDate = () => {
+    console.log(promise)
+    !promise && (window as any).ChatDetail.startSelectDate();
     promise !== [] && window.confirm('이미 약속이 있습니다. 약속을 완료하시겠습니까?') &&
     socket.current.emit("sendMessage",JSON.stringify({
       chatId: chatId,
       message: '약속이 완료되었습니다.'
     }))
-    promise === [] && (window as any).ChatDetail.startSelectDate();
   }
 
   return (
